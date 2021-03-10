@@ -15,8 +15,9 @@
 		32AF8E3025F8970E008CB261 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 32AF8E2E25F8970E008CB261 /* LaunchScreen.storyboard */; };
 		32AF8E3A25F8B26C008CB261 /* NavigationBarView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 32AF8E3925F8B26C008CB261 /* NavigationBarView.xib */; };
 		32AF8E4525F8B7CE008CB261 /* NavigationBarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32AF8E4425F8B7CE008CB261 /* NavigationBarView.swift */; };
-		32AF8E4925F8C6FF008CB261 /* CarouselView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 32AF8E4825F8C6FF008CB261 /* CarouselView.xib */; };
-		32AF8E4C25F8C712008CB261 /* CarouselView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32AF8E4B25F8C712008CB261 /* CarouselView.swift */; };
+		32AF8E5625F910A8008CB261 /* CarouselViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32AF8E5425F910A8008CB261 /* CarouselViewCell.swift */; };
+		32AF8E5725F910A8008CB261 /* CarouselViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 32AF8E5525F910A8008CB261 /* CarouselViewCell.xib */; };
+		32AF8E5B25F98CC6008CB261 /* UICollectionView+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32AF8E5A25F98CC6008CB261 /* UICollectionView+.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -30,8 +31,9 @@
 		32AF8E3125F8970E008CB261 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		32AF8E3925F8B26C008CB261 /* NavigationBarView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = NavigationBarView.xib; sourceTree = "<group>"; };
 		32AF8E4425F8B7CE008CB261 /* NavigationBarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationBarView.swift; sourceTree = "<group>"; };
-		32AF8E4825F8C6FF008CB261 /* CarouselView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CarouselView.xib; sourceTree = "<group>"; };
-		32AF8E4B25F8C712008CB261 /* CarouselView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CarouselView.swift; sourceTree = "<group>"; };
+		32AF8E5425F910A8008CB261 /* CarouselViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CarouselViewCell.swift; sourceTree = "<group>"; };
+		32AF8E5525F910A8008CB261 /* CarouselViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CarouselViewCell.xib; sourceTree = "<group>"; };
+		32AF8E5A25F98CC6008CB261 /* UICollectionView+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UICollectionView+.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -68,6 +70,7 @@
 				32AF8E2525F8970B008CB261 /* SceneDelegate.swift */,
 				32AF8E2725F8970B008CB261 /* ViewController.swift */,
 				32AF8E2925F8970B008CB261 /* Main.storyboard */,
+				32AF8E5A25F98CC6008CB261 /* UICollectionView+.swift */,
 				32AF8E3C25F8B27F008CB261 /* Views */,
 				32AF8E2C25F8970E008CB261 /* Assets.xcassets */,
 				32AF8E2E25F8970E008CB261 /* LaunchScreen.storyboard */,
@@ -81,8 +84,8 @@
 			children = (
 				32AF8E3925F8B26C008CB261 /* NavigationBarView.xib */,
 				32AF8E4425F8B7CE008CB261 /* NavigationBarView.swift */,
-				32AF8E4825F8C6FF008CB261 /* CarouselView.xib */,
-				32AF8E4B25F8C712008CB261 /* CarouselView.swift */,
+				32AF8E5425F910A8008CB261 /* CarouselViewCell.swift */,
+				32AF8E5525F910A8008CB261 /* CarouselViewCell.xib */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -148,7 +151,7 @@
 				32AF8E3A25F8B26C008CB261 /* NavigationBarView.xib in Resources */,
 				32AF8E2D25F8970E008CB261 /* Assets.xcassets in Resources */,
 				32AF8E2B25F8970B008CB261 /* Main.storyboard in Resources */,
-				32AF8E4925F8C6FF008CB261 /* CarouselView.xib in Resources */,
+				32AF8E5725F910A8008CB261 /* CarouselViewCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -159,10 +162,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				32AF8E4C25F8C712008CB261 /* CarouselView.swift in Sources */,
 				32AF8E2825F8970B008CB261 /* ViewController.swift in Sources */,
+				32AF8E5625F910A8008CB261 /* CarouselViewCell.swift in Sources */,
 				32AF8E2425F8970B008CB261 /* AppDelegate.swift in Sources */,
 				32AF8E2625F8970B008CB261 /* SceneDelegate.swift in Sources */,
+				32AF8E5B25F98CC6008CB261 /* UICollectionView+.swift in Sources */,
 				32AF8E4525F8B7CE008CB261 /* NavigationBarView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
