@@ -1,24 +1,93 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13122.16" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13104.12"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17703"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
         <!--View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="beautymnl_test" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="1500"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" xcode11CocoaTouchSystemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <subviews>
+                            <searchBar contentMode="redraw" translatesAutoresizingMaskIntoConstraints="NO" id="Uau-kd-uHw">
+                                <rect key="frame" x="0.0" y="108" width="414" height="56"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </searchBar>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="bar-logo" translatesAutoresizingMaskIntoConstraints="NO" id="G6t-op-HRs">
+                                <rect key="frame" x="99" y="75" width="216" height="31"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="216" id="1dx-5g-aGc"/>
+                                    <constraint firstAttribute="height" constant="31" id="rQW-Q1-37I"/>
+                                </constraints>
+                            </imageView>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="A1u-Aj-IB2" customClass="NavigationBarView" customModule="beautymnl_test" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="164" width="414" height="67"/>
+                                <color key="backgroundColor" name="AccentColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="67" id="1un-8B-PBT"/>
+                                    <constraint firstAttribute="width" constant="414" id="cTa-h1-lgo"/>
+                                </constraints>
+                            </view>
+                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="ZJX-vg-fhO" customClass="CarouselView" customModule="beautymnl_test" customModuleProvider="target">
+                                <rect key="frame" x="87" y="348" width="240" height="128"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" systemColor="systemPurpleColor"/>
+                            </view>
+                            <label opaque="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="khT-Ev-Xnn">
+                                <rect key="frame" x="186" y="297" width="42" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="Uau-kd-uHw" firstAttribute="top" secondItem="G6t-op-HRs" secondAttribute="bottom" constant="2" id="5Zd-Hv-8Ky"/>
+                            <constraint firstItem="G6t-op-HRs" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" constant="99" id="7nD-gF-Mnw"/>
+                            <constraint firstItem="G6t-op-HRs" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" constant="75" id="9kO-7H-io5"/>
+                            <constraint firstItem="A1u-Aj-IB2" firstAttribute="top" secondItem="Uau-kd-uHw" secondAttribute="bottom" id="9lK-kD-PZX"/>
+                            <constraint firstItem="Uau-kd-uHw" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="AIS-Xl-JAF"/>
+                            <constraint firstItem="A1u-Aj-IB2" firstAttribute="top" secondItem="Uau-kd-uHw" secondAttribute="bottom" id="E6X-2s-zB6"/>
+                            <constraint firstItem="A1u-Aj-IB2" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="G5u-fn-YBT"/>
+                            <constraint firstItem="A1u-Aj-IB2" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="LYm-md-Kuu"/>
+                            <constraint firstItem="A1u-Aj-IB2" firstAttribute="top" secondItem="Uau-kd-uHw" secondAttribute="bottom" id="i3f-8c-PJP"/>
+                            <constraint firstAttribute="trailing" secondItem="G6t-op-HRs" secondAttribute="trailing" constant="99" id="iIS-zU-B6e"/>
+                            <constraint firstItem="A1u-Aj-IB2" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="j99-M6-7nu"/>
+                            <constraint firstItem="Uau-kd-uHw" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="t3C-Qw-8R0"/>
+                            <constraint firstItem="A1u-Aj-IB2" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="tDo-2x-o7J"/>
+                        </constraints>
                     </view>
+                    <size key="freeformSize" width="414" height="1500"/>
+                    <connections>
+                        <outlet property="lbl" destination="khT-Ev-Xnn" id="J1i-nY-9KX"/>
+                        <outlet property="navBarView" destination="A1u-Aj-IB2" id="HnW-Kx-dl2"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
+            <point key="canvasLocation" x="18.840579710144929" y="75"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="bar-logo" width="414" height="81"/>
+        <namedColor name="AccentColor">
+            <color red="0.0" green="0.46000000000000002" blue="0.89000000000000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+        <systemColor name="systemPurpleColor">
+            <color red="0.68627450980392157" green="0.32156862745098042" blue="0.87058823529411766" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+    </resources>
 </document>
