@@ -8,12 +8,19 @@
 import UIKit
 
 class ViewController: UIViewController {
-
+    
     @IBOutlet weak var navBarView: NavigationBarView!
     var navigationBar = NavigationBarView()
     var carousel = CarouselView()
     
     @IBOutlet weak var lbl: UILabel!
+    
+    @IBAction func shopBtn(_ sender: Any) {
+        let alert = UIAlertController(title: "Button pressed", message: "Shop button", preferredStyle: UIAlertController.Style.alert)
+        alert.addAction(UIAlertAction(title: "Done!", style: UIAlertAction.Style.default, handler: nil))
+        self.present(alert, animated: true, completion: nil)
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
