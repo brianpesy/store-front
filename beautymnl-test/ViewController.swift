@@ -18,18 +18,22 @@ class ViewController: UIViewController, UICollectionViewDelegate, UICollectionVi
         UIImage(named: "carousel-3")
     ]
     
+    // MARK: - Setting up Outlets
+    @IBOutlet weak var navBarView: NavigationBarView!
+    @IBOutlet weak var carouselView: UICollectionView!
+    @IBOutlet weak var carouselPageControl: UIPageControl!
+    
     
     // MARK: - Setting up Collection Views
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return self.carouselImages.count
+        //return 1000
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = carouselView.dequeueReusableCell(withReuseIdentifier: carouselCellIdentifier, for: indexPath) as! CarouselViewCell
-        print(indexPath)
-        
-        cell.carouselImage.image = carouselImages[indexPath.row]
-        
+        cell.carouselImage.image = carouselImages[indexPath.row % carouselImages.count]
+//        carouselPageControl.currentPage = indexPath.row
         return cell
     }
     
@@ -38,20 +42,29 @@ class ViewController: UIViewController, UICollectionViewDelegate, UICollectionVi
 
     }
     
+    func scrollViewDidScroll(_ scrollView: UIScrollView) {
+        let witdh = scrollView.frame.width - (scrollView.contentInset.left*2)
+        let index = scrollView.contentOffset.x / witdh
+        let roundedIndex = round(index)
+        self.carouselPageControl.currentPage = Int(roundedIndex)
+    }
+    
     func scrollViewDidEndDecelerating(_ scrollView: UIScrollView) {
+        
         self.carouselView.scrollToNearestVisibleCollectionViewCell()
+        carouselPageControl?.currentPage = Int(scrollView.contentOffset.x) / Int(scrollView.frame.width)
+        
+
     }
 
     func scrollViewDidEndDragging(_ scrollView: UIScrollView, willDecelerate decelerate: Bool) {
         if !decelerate {
             self.carouselView.scrollToNearestVisibleCollectionViewCell()
         }
+        carouselPageControl?.currentPage = Int(scrollView.contentOffset.x) / Int(scrollView.frame.width)
+
     }
     
-    // MARK: - Setting up Outlets
-    @IBOutlet weak var navBarView: NavigationBarView!
-    
-    @IBOutlet weak var carouselView: UICollectionView!
     
     //MARK: - Setting up Actions
     @IBAction func shopBtn(_ sender: Any) {

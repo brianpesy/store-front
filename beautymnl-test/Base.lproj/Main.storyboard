@@ -18,14 +18,17 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="3000"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Eco-Cm-bC4">
-                                <rect key="frame" x="0.0" y="239" width="414" height="2761"/>
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Eco-Cm-bC4">
+                                <rect key="frame" x="0.0" y="231" width="414" height="2769"/>
                                 <subviews>
-                                    <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="BuA-a7-8QF">
+                                    <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" bounces="NO" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" bouncesZoom="NO" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="BuA-a7-8QF">
                                         <rect key="frame" x="0.0" y="8" width="414" height="231"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                                        <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" automaticEstimatedItemSize="YES" minimumLineSpacing="10" minimumInteritemSpacing="10" id="CRN-gC-kOM">
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="414" id="HVV-2N-leW"/>
+                                            <constraint firstAttribute="height" constant="231" id="xd2-jG-EFt"/>
+                                        </constraints>
+                                        <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" automaticEstimatedItemSize="YES" minimumLineSpacing="0.0" minimumInteritemSpacing="10" id="CRN-gC-kOM">
                                             <size key="itemSize" width="128" height="128"/>
                                             <size key="headerReferenceSize" width="0.0" height="0.0"/>
                                             <size key="footerReferenceSize" width="0.0" height="0.0"/>
@@ -42,24 +45,49 @@
                                             </collectionViewCell>
                                         </cells>
                                     </collectionView>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8hz-WQ-Mvp">
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8hz-WQ-Mvp">
                                         <rect key="frame" x="186" y="831" width="42" height="21"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <view contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="ZoQ-3B-gja">
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ZoQ-3B-gja">
                                         <rect key="frame" x="87" y="1471" width="240" height="128"/>
                                         <color key="backgroundColor" systemColor="systemGreenColor"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="128" id="X9D-S8-Y1c"/>
+                                        </constraints>
+                                    </view>
+                                    <pageControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" numberOfPages="3" translatesAutoresizingMaskIntoConstraints="NO" id="EKN-KK-KeK">
+                                        <rect key="frame" x="146" y="247" width="123" height="28"/>
+                                        <color key="pageIndicatorTintColor" systemColor="systemGray3Color"/>
+                                        <color key="currentPageIndicatorTintColor" systemColor="systemIndigoColor"/>
+                                    </pageControl>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Iwl-6y-8fn">
+                                        <rect key="frame" x="0.0" y="283" width="414" height="350"/>
+                                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="350" id="K36-e6-S6v"/>
+                                            <constraint firstAttribute="width" constant="414" id="dGp-6H-kjE"/>
+                                        </constraints>
                                     </view>
                                 </subviews>
                                 <constraints>
+                                    <constraint firstItem="BuA-a7-8QF" firstAttribute="top" secondItem="Eco-Cm-bC4" secondAttribute="top" constant="8" id="0TY-oq-BYO"/>
+                                    <constraint firstAttribute="trailing" secondItem="EKN-KK-KeK" secondAttribute="trailing" constant="145" id="1lL-gR-fnX"/>
                                     <constraint firstItem="ZoQ-3B-gja" firstAttribute="leading" secondItem="Eco-Cm-bC4" secondAttribute="leading" constant="87" id="20Y-8l-zXp"/>
-                                    <constraint firstAttribute="bottom" secondItem="ZoQ-3B-gja" secondAttribute="bottom" constant="1162" id="27K-bl-CDA"/>
+                                    <constraint firstItem="EKN-KK-KeK" firstAttribute="top" secondItem="BuA-a7-8QF" secondAttribute="bottom" constant="8" symbolic="YES" id="3UK-wO-Rw4"/>
+                                    <constraint firstAttribute="trailing" secondItem="Iwl-6y-8fn" secondAttribute="trailing" id="5kg-zw-cze"/>
+                                    <constraint firstItem="Iwl-6y-8fn" firstAttribute="leading" secondItem="Eco-Cm-bC4" secondAttribute="leading" id="67l-Jf-bNK"/>
+                                    <constraint firstItem="8hz-WQ-Mvp" firstAttribute="top" secondItem="Iwl-6y-8fn" secondAttribute="bottom" constant="198" id="857-sn-dXn"/>
                                     <constraint firstItem="8hz-WQ-Mvp" firstAttribute="leading" secondItem="Eco-Cm-bC4" secondAttribute="leading" constant="186" id="ACf-5r-lDs"/>
+                                    <constraint firstItem="EKN-KK-KeK" firstAttribute="leading" secondItem="Eco-Cm-bC4" secondAttribute="leading" constant="146" id="ERs-zh-4cJ"/>
+                                    <constraint firstItem="BuA-a7-8QF" firstAttribute="leading" secondItem="Eco-Cm-bC4" secondAttribute="leading" id="EpL-f8-akB"/>
+                                    <constraint firstItem="Iwl-6y-8fn" firstAttribute="top" secondItem="EKN-KK-KeK" secondAttribute="bottom" constant="8" symbolic="YES" id="H9F-jr-TnF"/>
+                                    <constraint firstItem="ZoQ-3B-gja" firstAttribute="top" secondItem="8hz-WQ-Mvp" secondAttribute="bottom" constant="619" id="Hz2-Ed-Z78"/>
                                     <constraint firstAttribute="trailing" secondItem="ZoQ-3B-gja" secondAttribute="trailing" constant="87" id="NI4-LT-Lv1"/>
-                                    <constraint firstItem="ZoQ-3B-gja" firstAttribute="top" secondItem="8hz-WQ-Mvp" secondAttribute="bottom" constant="619" id="OOc-lf-Cpy"/>
-                                    <constraint firstItem="ZoQ-3B-gja" firstAttribute="top" secondItem="8hz-WQ-Mvp" secondAttribute="bottom" constant="619" id="nqF-jH-RTn"/>
+                                    <constraint firstAttribute="bottom" secondItem="ZoQ-3B-gja" secondAttribute="bottom" constant="1162" id="SJ3-Gq-qQu"/>
+                                    <constraint firstAttribute="trailing" secondItem="BuA-a7-8QF" secondAttribute="trailing" id="Tzn-qk-fb7"/>
                                     <constraint firstAttribute="trailing" secondItem="8hz-WQ-Mvp" secondAttribute="trailing" constant="186" id="sCL-je-VLr"/>
                                 </constraints>
                             </scrollView>
@@ -131,6 +159,7 @@
                     </view>
                     <size key="freeformSize" width="414" height="3000"/>
                     <connections>
+                        <outlet property="carouselPageControl" destination="EKN-KK-KeK" id="fDe-0A-gRF"/>
                         <outlet property="carouselView" destination="BuA-a7-8QF" id="Dye-tL-UJ3"/>
                         <outlet property="navBarView" destination="A1u-Aj-IB2" id="HnW-Kx-dl2"/>
                     </connections>
@@ -149,8 +178,14 @@
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>
+        <systemColor name="systemGray3Color">
+            <color red="0.7803921568627451" green="0.7803921568627451" blue="0.80000000000000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
         <systemColor name="systemGreenColor">
             <color red="0.20392156862745098" green="0.7803921568627451" blue="0.34901960784313724" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+        <systemColor name="systemIndigoColor">
+            <color red="0.34509803921568627" green="0.33725490196078434" blue="0.83921568627450982" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
     </resources>
 </document>

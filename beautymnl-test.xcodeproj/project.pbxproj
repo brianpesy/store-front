@@ -18,6 +18,8 @@
 		32AF8E5625F910A8008CB261 /* CarouselViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32AF8E5425F910A8008CB261 /* CarouselViewCell.swift */; };
 		32AF8E5725F910A8008CB261 /* CarouselViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 32AF8E5525F910A8008CB261 /* CarouselViewCell.xib */; };
 		32AF8E5B25F98CC6008CB261 /* UICollectionView+.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32AF8E5A25F98CC6008CB261 /* UICollectionView+.swift */; };
+		32AF8E6125F9B0F4008CB261 /* ProductHorizontalReelView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32AF8E6025F9B0F4008CB261 /* ProductHorizontalReelView.swift */; };
+		32AF8E6425F9B10A008CB261 /* ProductHorizontalReelView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 32AF8E6325F9B10A008CB261 /* ProductHorizontalReelView.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -34,6 +36,8 @@
 		32AF8E5425F910A8008CB261 /* CarouselViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CarouselViewCell.swift; sourceTree = "<group>"; };
 		32AF8E5525F910A8008CB261 /* CarouselViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CarouselViewCell.xib; sourceTree = "<group>"; };
 		32AF8E5A25F98CC6008CB261 /* UICollectionView+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UICollectionView+.swift"; sourceTree = "<group>"; };
+		32AF8E6025F9B0F4008CB261 /* ProductHorizontalReelView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductHorizontalReelView.swift; sourceTree = "<group>"; };
+		32AF8E6325F9B10A008CB261 /* ProductHorizontalReelView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ProductHorizontalReelView.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -86,6 +90,8 @@
 				32AF8E4425F8B7CE008CB261 /* NavigationBarView.swift */,
 				32AF8E5425F910A8008CB261 /* CarouselViewCell.swift */,
 				32AF8E5525F910A8008CB261 /* CarouselViewCell.xib */,
+				32AF8E6025F9B0F4008CB261 /* ProductHorizontalReelView.swift */,
+				32AF8E6325F9B10A008CB261 /* ProductHorizontalReelView.xib */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -147,6 +153,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				32AF8E6425F9B10A008CB261 /* ProductHorizontalReelView.xib in Resources */,
 				32AF8E3025F8970E008CB261 /* LaunchScreen.storyboard in Resources */,
 				32AF8E3A25F8B26C008CB261 /* NavigationBarView.xib in Resources */,
 				32AF8E2D25F8970E008CB261 /* Assets.xcassets in Resources */,
@@ -168,6 +175,7 @@
 				32AF8E2625F8970B008CB261 /* SceneDelegate.swift in Sources */,
 				32AF8E5B25F98CC6008CB261 /* UICollectionView+.swift in Sources */,
 				32AF8E4525F8B7CE008CB261 /* NavigationBarView.swift in Sources */,
+				32AF8E6125F9B0F4008CB261 /* ProductHorizontalReelView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
