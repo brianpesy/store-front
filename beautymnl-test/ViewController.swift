@@ -8,6 +8,9 @@
 import UIKit
 
 let carouselCellIdentifier = "CarouselViewCell"
+let productCollectionViewCellIdentifier = "ProductCollectionViewCell"
+
+private var indexOfCellBeforeDragging = 0
 
 class ViewController: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource {
     
@@ -29,28 +32,42 @@ class ViewController: UIViewController, UICollectionViewDelegate, UICollectionVi
         UIImage(named: "rating-empty")
     ]
     
+    
     // MARK: - Setting up Outlets
     @IBOutlet weak var navBarView: NavigationBarView!
     @IBOutlet weak var carouselView: UICollectionView!
     @IBOutlet weak var carouselPageControl: UIPageControl!
     @IBOutlet weak var productHorizontalReelView1: ProductHorizontalReelView!
+    @IBOutlet weak var trendingView: UICollectionView!
     
     // MARK: - Setting up Collection Views
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return self.carouselImages.count
-        //return 1000
+        if collectionView == self.carouselView {
+            return self.carouselImages.count
+        }
+        return 12
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = carouselView.dequeueReusableCell(withReuseIdentifier: carouselCellIdentifier, for: indexPath) as! CarouselViewCell
-        cell.carouselImage.image = carouselImages[indexPath.row % carouselImages.count]
-//        carouselPageControl.currentPage = indexPath.row
-        return cell
+        if collectionView == self.carouselView {
+            let cell = carouselView.dequeueReusableCell(withReuseIdentifier: carouselCellIdentifier, for: indexPath) as! CarouselViewCell
+            cell.carouselImage.image = carouselImages[indexPath.row % carouselImages.count]
+            return cell
+        } else {
+            let cell = trendingView.dequeueReusableCell(withReuseIdentifier: productCollectionViewCellIdentifier, for: indexPath) as! ProductCollectionViewCell
+            cell.productImage.image = carouselImages[indexPath.row % carouselImages.count]
+            cell.productLabel.text = String(indexPath.row % carouselImages.count)
+            return cell
+        }
+    
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        setupAlert(title: "Button pressed", message: "Carousel \(indexPath.row)")
-
+        if collectionView == self.carouselView {
+            setupAlert(title: "Button pressed", message: "Carousel \(indexPath.row)")
+        } else {
+            setupAlert(title: "Button pressed", message: "Trending \(indexPath.row)")
+        }
     }
     
     func scrollViewDidScroll(_ scrollView: UIScrollView) {
@@ -74,6 +91,28 @@ class ViewController: UIViewController, UICollectionViewDelegate, UICollectionVi
         }
         carouselPageControl?.currentPage = Int(scrollView.contentOffset.x) / Int(scrollView.frame.width)
 
+    }
+    
+    func scrollViewWillEndDragging(_ scrollView: UIScrollView, withVelocity velocity: CGPoint, targetContentOffset: UnsafeMutablePointer<CGPoint>) {
+        
+        // scrolling by 6 cells for trending
+        if scrollView == self.trendingView {
+            targetContentOffset.pointee = scrollView.contentOffset
+            var indexes = self.trendingView.indexPathsForVisibleItems
+            indexes.sort()
+            var index = indexes.first!
+            let cell = self.trendingView.cellForItem(at: index)!
+            let position = self.trendingView.contentOffset.x - cell.frame.origin.x
+            
+            //to scroll to the 6th index (6 in a page)
+            if position > cell.frame.size.width {
+                index.row = index.row + 6
+            } else if position < cell.frame.size.width {
+                index.row = index.row - 6
+            }
+            self.trendingView.scrollToItem(at: index, at: .left, animated: true )
+        }
+        
     }
     
     
@@ -250,14 +289,22 @@ class ViewController: UIViewController, UICollectionViewDelegate, UICollectionVi
         
     }
     
+    func setupProductCollectionViewCell() {
+        self.trendingView.register(UINib(nibName: "ProductCollectionViewCell", bundle: nil), forCellWithReuseIdentifier: productCollectionViewCellIdentifier)
+        self.trendingView.delegate = self
+        self.trendingView.dataSource = self
+        trendingView.isUserInteractionEnabled = true
+        trendingView.scrollToNearestVisibleCollectionViewCell()
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
         setupTaps()
         setupCarousel()
         setupProductHorizontalReel1()
+        setupProductCollectionViewCell()
         
     }
     
 }
-

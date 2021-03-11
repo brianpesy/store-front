@@ -45,8 +45,14 @@
                                             </collectionViewCell>
                                         </cells>
                                     </collectionView>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Trending" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8hz-WQ-Mvp">
+                                        <rect key="frame" x="167" y="737" width="80" height="25.5"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="21"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ZoQ-3B-gja">
-                                        <rect key="frame" x="87" y="1471" width="240" height="128"/>
+                                        <rect key="frame" x="87" y="1475.5" width="240" height="128"/>
                                         <color key="backgroundColor" systemColor="systemGreenColor"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="128" id="X9D-S8-Y1c"/>
@@ -65,12 +71,28 @@
                                             <constraint firstAttribute="width" constant="414" id="dGp-6H-kjE"/>
                                         </constraints>
                                     </view>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8hz-WQ-Mvp">
-                                        <rect key="frame" x="186" y="1180" width="42" height="21"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                        <nil key="textColor"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
+                                    <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleAspectFill" fixedFrame="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" bouncesZoom="NO" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="cHZ-UF-OA1">
+                                        <rect key="frame" x="0.0" y="776" width="414" height="340"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                        <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" minimumLineSpacing="10" minimumInteritemSpacing="10" id="KJv-yA-Xg5">
+                                            <size key="itemSize" width="128" height="165"/>
+                                            <size key="estimatedItemSize" width="128" height="165"/>
+                                            <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                                            <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                                            <inset key="sectionInset" minX="5.5" minY="0.0" maxX="5.5" maxY="0.0"/>
+                                        </collectionViewFlowLayout>
+                                        <cells>
+                                            <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" reuseIdentifier="ProductCollectionViewCell" id="tLi-ae-a5O">
+                                                <rect key="frame" x="5.5" y="0.0" width="128" height="165"/>
+                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="z1R-5V-NyD" customClass="ProductCollectionViewCell" customModule="beautymnl_test" customModuleProvider="target">
+                                                    <rect key="frame" x="0.0" y="0.0" width="128" height="165"/>
+                                                    <autoresizingMask key="autoresizingMask"/>
+                                                </collectionViewCellContentView>
+                                            </collectionViewCell>
+                                        </cells>
+                                    </collectionView>
                                 </subviews>
                                 <constraints>
                                     <constraint firstItem="BuA-a7-8QF" firstAttribute="top" secondItem="Eco-Cm-bC4" secondAttribute="top" constant="8" id="0TY-oq-BYO"/>
@@ -79,16 +101,15 @@
                                     <constraint firstItem="EKN-KK-KeK" firstAttribute="top" secondItem="BuA-a7-8QF" secondAttribute="bottom" constant="8" symbolic="YES" id="3UK-wO-Rw4"/>
                                     <constraint firstAttribute="trailing" secondItem="Iwl-6y-8fn" secondAttribute="trailing" id="5kg-zw-cze"/>
                                     <constraint firstItem="Iwl-6y-8fn" firstAttribute="leading" secondItem="Eco-Cm-bC4" secondAttribute="leading" id="67l-Jf-bNK"/>
-                                    <constraint firstItem="8hz-WQ-Mvp" firstAttribute="top" secondItem="Iwl-6y-8fn" secondAttribute="bottom" constant="477" id="857-sn-dXn"/>
-                                    <constraint firstItem="8hz-WQ-Mvp" firstAttribute="leading" secondItem="Eco-Cm-bC4" secondAttribute="leading" constant="186" id="ACf-5r-lDs"/>
+                                    <constraint firstItem="8hz-WQ-Mvp" firstAttribute="top" secondItem="Iwl-6y-8fn" secondAttribute="bottom" constant="34" id="857-sn-dXn"/>
+                                    <constraint firstItem="8hz-WQ-Mvp" firstAttribute="centerX" secondItem="Eco-Cm-bC4" secondAttribute="centerX" id="D0m-qL-aiB"/>
                                     <constraint firstItem="EKN-KK-KeK" firstAttribute="leading" secondItem="Eco-Cm-bC4" secondAttribute="leading" constant="146" id="ERs-zh-4cJ"/>
                                     <constraint firstItem="BuA-a7-8QF" firstAttribute="leading" secondItem="Eco-Cm-bC4" secondAttribute="leading" id="EpL-f8-akB"/>
                                     <constraint firstItem="Iwl-6y-8fn" firstAttribute="top" secondItem="EKN-KK-KeK" secondAttribute="bottom" constant="8" symbolic="YES" id="H9F-jr-TnF"/>
-                                    <constraint firstItem="ZoQ-3B-gja" firstAttribute="top" secondItem="8hz-WQ-Mvp" secondAttribute="bottom" constant="270" id="Hz2-Ed-Z78"/>
+                                    <constraint firstItem="ZoQ-3B-gja" firstAttribute="top" secondItem="8hz-WQ-Mvp" secondAttribute="bottom" constant="713" id="Hz2-Ed-Z78"/>
                                     <constraint firstAttribute="trailing" secondItem="ZoQ-3B-gja" secondAttribute="trailing" constant="87" id="NI4-LT-Lv1"/>
                                     <constraint firstAttribute="bottom" secondItem="ZoQ-3B-gja" secondAttribute="bottom" constant="1162" id="SJ3-Gq-qQu"/>
                                     <constraint firstAttribute="trailing" secondItem="BuA-a7-8QF" secondAttribute="trailing" id="Tzn-qk-fb7"/>
-                                    <constraint firstAttribute="trailing" secondItem="8hz-WQ-Mvp" secondAttribute="trailing" constant="186" id="sCL-je-VLr"/>
                                 </constraints>
                             </scrollView>
                             <searchBar contentMode="redraw" translatesAutoresizingMaskIntoConstraints="NO" id="Uau-kd-uHw">
@@ -163,6 +184,7 @@
                         <outlet property="carouselView" destination="BuA-a7-8QF" id="Dye-tL-UJ3"/>
                         <outlet property="navBarView" destination="A1u-Aj-IB2" id="HnW-Kx-dl2"/>
                         <outlet property="productHorizontalReelView1" destination="Iwl-6y-8fn" id="ZkG-qb-KU8"/>
+                        <outlet property="trendingView" destination="cHZ-UF-OA1" id="QAk-23-QSh"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
