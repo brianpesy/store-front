@@ -18,11 +18,22 @@ class ViewController: UIViewController, UICollectionViewDelegate, UICollectionVi
         UIImage(named: "carousel-3")
     ]
     
+    let productReelImages = [
+        UIImage(named: "product-2"),
+        UIImage(named: "product-3"),
+        UIImage(named: "product-4")
+    ]
+    
+    let ratingImages = [
+        UIImage(named: "rating-full"),
+        UIImage(named: "rating-empty")
+    ]
+    
     // MARK: - Setting up Outlets
     @IBOutlet weak var navBarView: NavigationBarView!
     @IBOutlet weak var carouselView: UICollectionView!
     @IBOutlet weak var carouselPageControl: UIPageControl!
-    
+    @IBOutlet weak var productHorizontalReelView1: ProductHorizontalReelView!
     
     // MARK: - Setting up Collection Views
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
@@ -105,19 +116,37 @@ class ViewController: UIViewController, UICollectionViewDelegate, UICollectionVi
         view.endEditing(true)
     }
     
+    @objc func tapGoTo(_ sender: UITapGestureRecognizer) {
+        setupAlert(title: "Button pressed", message: "Go to")
+    }
+    
+    @objc func tapSeeAll(_ sender: UITapGestureRecognizer) {
+        setupAlert(title: "Button pressed", message: "See all")
+    }
+    
+    @objc func tapProductReel(_ sender: UITapGestureRecognizer) {
+        setupAlert(title: "Button pressed", message: "Product reel - 1")
+    }
+    
+    @objc func tapProductReel2(_ sender: UITapGestureRecognizer) {
+        setupAlert(title: "Button pressed", message: "Product reel - 2")
+    }
+    
+    @objc func tapProductReel3(_ sender: UITapGestureRecognizer) {
+        setupAlert(title: "Button pressed", message: "Product reel - 3")
+    }
+    
     //MARK: - Tap Setup
     func setupTaps(){
+        
+        /// Keyboard dismiss
         //dismisses the keyboard when tapping anywhere
         let hideKeyboardTap = UITapGestureRecognizer(target: self, action: #selector(hideKeyboard))
         view.addGestureRecognizer(hideKeyboardTap)
         hideKeyboardTap.cancelsTouchesInView = false
 
-//        navBarView.homeLabel.text = "hel"
-//        navBarView.homeLabel.textColor = UIColor.red
-//        navBarView.homeLabel.isUserInteractionEnabled = true
-//        navBarView.homeLabel.isEnabled = true
-//        navBarView.homeLabel.addGestureRecognizer(navBarTap)
-
+        /// Nav Bar taps
+        
         //shows an alert when tapping the navigation bar
         let navBarTap = UITapGestureRecognizer(target: self, action: #selector(self.tapNavBar(_:)))
         let navBarTapHome = UITapGestureRecognizer(target: self, action: #selector(self.tapHomeNavBar(_:)))
@@ -126,14 +155,12 @@ class ViewController: UIViewController, UICollectionViewDelegate, UICollectionVi
         let navBarTapSkincare = UITapGestureRecognizer(target: self, action: #selector(self.tapSkincareNavBar(_:)))
         let navBarTapMakeup = UITapGestureRecognizer(target: self, action: #selector(self.tapMakeupNavBar(_:)))
         let navBarTapBB = UITapGestureRecognizer(target: self, action: #selector(self.tapBBNavBar(_:)))
-//        navBarView.addGestureRecognizer(navBarTap)
-//        navBarView.isUserInteractionEnabled = true
+
         
         //shows we can tap individual labels
         navBarView.homeLabel.isUserInteractionEnabled = true
         navBarView.homeLabel.addGestureRecognizer(navBarTapHome)
         
-        //generic tap for the others
         navBarView.onSaleLabel.isUserInteractionEnabled = true
         navBarView.onSaleLabel.addGestureRecognizer(navBarTapSale)
         
@@ -149,9 +176,22 @@ class ViewController: UIViewController, UICollectionViewDelegate, UICollectionVi
         navBarView.bathAndBodyCareLabel.isUserInteractionEnabled = true
         navBarView.bathAndBodyCareLabel.addGestureRecognizer(navBarTapBB)
         
+        /// Product reel 1 taps
         
+        let goToTap = UITapGestureRecognizer(target: self, action: #selector(self.tapGoTo(_:)))
+        productHorizontalReelView1.seeAllOutlet.addGestureRecognizer(goToTap)
         
-//        navBarView.
+        let seeAllTap = UITapGestureRecognizer(target: self, action: #selector(self.tapSeeAll(_:)))
+        productHorizontalReelView1.seeAllView.isUserInteractionEnabled = true
+        productHorizontalReelView1.seeAllView.addGestureRecognizer(seeAllTap)
+        
+        let productReelTap = UITapGestureRecognizer(target: self, action: #selector(self.tapProductReel(_:)))
+        let productReelTap2 = UITapGestureRecognizer(target: self, action: #selector(self.tapProductReel2(_:)))
+        let productReelTap3 = UITapGestureRecognizer(target: self, action: #selector(self.tapProductReel3(_:)))
+
+        productHorizontalReelView1.productView.addGestureRecognizer(productReelTap)
+        productHorizontalReelView1.productView2.addGestureRecognizer(productReelTap2)
+        productHorizontalReelView1.productView3.addGestureRecognizer(productReelTap3)
     }
 
     //MARK: - Functions
@@ -169,12 +209,53 @@ class ViewController: UIViewController, UICollectionViewDelegate, UICollectionVi
         self.present(alert, animated: true, completion: nil)
     }
     
+    func setupProductHorizontalReel1(){
+        productHorizontalReelView1.seeAllOutlet.layer.cornerRadius = 5
+        productHorizontalReelView1.seeAllOutlet.layer.borderWidth = 1
+        productHorizontalReelView1.seeAllOutlet.layer.borderColor = UIColor.black.cgColor
+        
+        productHorizontalReelView1.productView.productImage.image = productReelImages[0]
+        productHorizontalReelView1.productView.brandLabel.text = "Healthy Cars"
+        productHorizontalReelView1.productView.nameLabel.text = "Electronic Car"
+        productHorizontalReelView1.productView.priceLabel.text = "₱100000"
+        productHorizontalReelView1.productView.star1.image = ratingImages[0]
+        productHorizontalReelView1.productView.star2.image = ratingImages[0]
+        productHorizontalReelView1.productView.star3.image = ratingImages[0]
+        productHorizontalReelView1.productView.star4.image = ratingImages[0]
+        productHorizontalReelView1.productView.star5.image = ratingImages[1]
+        productHorizontalReelView1.productView.ratingNumberLabel.text = "7"
+        
+        productHorizontalReelView1.productView2.productImage.image = productReelImages[1]
+        productHorizontalReelView1.productView2.brandLabel.text = "Loot-ion"
+        productHorizontalReelView1.productView2.nameLabel.text = "Hand Lotion"
+        productHorizontalReelView1.productView2.priceLabel.text = "₱600"
+        productHorizontalReelView1.productView2.star1.image = ratingImages[0]
+        productHorizontalReelView1.productView2.star2.image = ratingImages[0]
+        productHorizontalReelView1.productView2.star3.image = ratingImages[0]
+        productHorizontalReelView1.productView2.star4.image = ratingImages[0]
+        productHorizontalReelView1.productView2.star5.image = ratingImages[0]
+        productHorizontalReelView1.productView2.ratingNumberLabel.text = "2311"
+        
+        productHorizontalReelView1.productView3.productImage.image = productReelImages[2]
+        productHorizontalReelView1.productView3.brandLabel.text = "Nice Cups"
+        productHorizontalReelView1.productView3.nameLabel.text = "Red Cup"
+        productHorizontalReelView1.productView3.priceLabel.text = "₱100"
+        productHorizontalReelView1.productView3.star1.image = ratingImages[0]
+        productHorizontalReelView1.productView3.star2.image = ratingImages[0]
+        productHorizontalReelView1.productView3.star3.image = ratingImages[1]
+        productHorizontalReelView1.productView3.star4.image = ratingImages[1]
+        productHorizontalReelView1.productView3.star5.image = ratingImages[1]
+        productHorizontalReelView1.productView3.ratingNumberLabel.text = "498"
+
+        
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
         setupTaps()
         setupCarousel()
-
+        setupProductHorizontalReel1()
         
     }
     

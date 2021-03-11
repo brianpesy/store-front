@@ -1,5 +1,5 @@
 //
-//  ProductHorizontalReelView.swift
+//  ProductView.swift
 //  beautymnl-test
 //
 //  Created by Brian Nicholas Sy on 3/11/21.
@@ -7,20 +7,23 @@
 
 import UIKit
 
-class ProductHorizontalReelView: UIView {
+class ProductView: UIView {
 
     @IBOutlet var contentView: UIView!
-    @IBOutlet weak var seeAllOutlet: UIButton!
-    @IBOutlet weak var productReelLabel: UILabel!
-    @IBOutlet weak var productView: ProductView!
-    @IBOutlet weak var productView2: ProductView!
-    @IBOutlet weak var productView3: ProductView!
-    @IBOutlet weak var seeAllView: UIImageView!
+    @IBOutlet weak var productImage: UIImageView!
+    @IBOutlet weak var brandLabel: UILabel!
+    @IBOutlet weak var nameLabel: UILabel!
+    @IBOutlet weak var priceLabel: UILabel!
+    @IBOutlet weak var star1: UIImageView!
+    @IBOutlet weak var star2: UIImageView!
+    @IBOutlet weak var star3: UIImageView!
+    @IBOutlet weak var star4: UIImageView!
+    @IBOutlet weak var star5: UIImageView!
+    @IBOutlet weak var ratingNumberLabel: UILabel!
     
     override init(frame: CGRect) {
         super.init(frame: frame)
         commonInit()
-        
     }
     
     override func awakeFromNib() {
@@ -33,7 +36,7 @@ class ProductHorizontalReelView: UIView {
     }
     
     private func commonInit() {
-        Bundle.main.loadNibNamed("ProductHorizontalReelView", owner: self, options: nil)
+        Bundle.main.loadNibNamed("ProductView", owner: self, options: nil)
         addSubview(contentView)
         contentView.frame = self.bounds
         contentView.autoresizingMask = [.flexibleHeight, .flexibleWidth]
