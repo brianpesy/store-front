@@ -15,6 +15,7 @@ private var indexOfCellBeforeDragging = 0
 class ViewController: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource {
     
     // MARK: - Variable Delcaration
+    
     let carouselImages = [
         UIImage(named: "carousel-1"),
         UIImage(named: "carousel-2"),
@@ -32,13 +33,30 @@ class ViewController: UIViewController, UICollectionViewDelegate, UICollectionVi
         UIImage(named: "rating-empty")
     ]
     
+    let trendingImages = [
+        UIImage(named: "product-t-1"),
+        UIImage(named: "product-t-2"),
+        UIImage(named: "product-t-3"),
+        UIImage(named: "product-t-4"),
+        UIImage(named: "product-t-5"),
+        UIImage(named: "product-t-6"),
+        UIImage(named: "product-t-7"),
+        UIImage(named: "product-t-8"),
+        UIImage(named: "product-t-9"),
+        UIImage(named: "product-t-10"),
+        UIImage(named: "product-t-11"),
+        UIImage(named: "product-t-12")
+    ]
+    
     
     // MARK: - Setting up Outlets
+    @IBOutlet var contentView: UIView!
     @IBOutlet weak var navBarView: NavigationBarView!
     @IBOutlet weak var carouselView: UICollectionView!
     @IBOutlet weak var carouselPageControl: UIPageControl!
     @IBOutlet weak var productHorizontalReelView1: ProductHorizontalReelView!
     @IBOutlet weak var trendingView: UICollectionView!
+    @IBOutlet weak var trendingPageControl: UIPageControl!
     
     // MARK: - Setting up Collection Views
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
@@ -55,8 +73,8 @@ class ViewController: UIViewController, UICollectionViewDelegate, UICollectionVi
             return cell
         } else {
             let cell = trendingView.dequeueReusableCell(withReuseIdentifier: productCollectionViewCellIdentifier, for: indexPath) as! ProductCollectionViewCell
-            cell.productImage.image = carouselImages[indexPath.row % carouselImages.count]
-            cell.productLabel.text = String(indexPath.row % carouselImages.count)
+            cell.productImage.image = trendingImages[indexPath.row % trendingImages.count]
+            cell.productLabel.text = "Item \(String(indexPath.row % trendingImages.count))"
             return cell
         }
     
@@ -81,7 +99,7 @@ class ViewController: UIViewController, UICollectionViewDelegate, UICollectionVi
         
         self.carouselView.scrollToNearestVisibleCollectionViewCell()
         carouselPageControl?.currentPage = Int(scrollView.contentOffset.x) / Int(scrollView.frame.width)
-        
+//        trendingPageControl?.currentPage = Int(scrollView.contentOffset.x) / Int(scrollView.frame.width)
 
     }
 
@@ -90,6 +108,7 @@ class ViewController: UIViewController, UICollectionViewDelegate, UICollectionVi
             self.carouselView.scrollToNearestVisibleCollectionViewCell()
         }
         carouselPageControl?.currentPage = Int(scrollView.contentOffset.x) / Int(scrollView.frame.width)
+//        trendingPageControl?.currentPage = Int(scrollView.contentOffset.x) / Int(scrollView.frame.width)
 
     }
     
@@ -97,18 +116,34 @@ class ViewController: UIViewController, UICollectionViewDelegate, UICollectionVi
         
         // scrolling by 6 cells for trending
         if scrollView == self.trendingView {
+            
+            let screenRect = UIScreen.main.bounds
+            let screenWidth = screenRect.size.width
+            
             targetContentOffset.pointee = scrollView.contentOffset
             var indexes = self.trendingView.indexPathsForVisibleItems
             indexes.sort()
             var index = indexes.first!
             let cell = self.trendingView.cellForItem(at: index)!
             let position = self.trendingView.contentOffset.x - cell.frame.origin.x
-            
+            print("STUFF: ", self.trendingView.contentOffset.x, "|", cell.frame.origin.x, "|", position, "|", cell.frame.size.width)
             //to scroll to the 6th index (6 in a page)
-            if position > cell.frame.size.width {
+            if index.row >= 6 {
+                index.row = 6
+            } else if index.row <= 0 {
+                index.row = 0
+            }
+            if position > cell.frame.size.width/2 {
                 index.row = index.row + 6
+                trendingPageControl.currentPage = 1
             } else if position < cell.frame.size.width {
                 index.row = index.row - 6
+                trendingPageControl.currentPage = 0
+                if self.trendingView.contentOffset.x < screenWidth + 1 {
+                    trendingPageControl.currentPage = 0
+                } else {
+                    trendingPageControl.currentPage = 1
+                }
             }
             self.trendingView.scrollToItem(at: index, at: .left, animated: true )
         }
@@ -285,8 +320,31 @@ class ViewController: UIViewController, UICollectionViewDelegate, UICollectionVi
         productHorizontalReelView1.productView3.star4.image = ratingImages[1]
         productHorizontalReelView1.productView3.star5.image = ratingImages[1]
         productHorizontalReelView1.productView3.ratingNumberLabel.text = "498"
-
         
+        let screenRect = UIScreen.main.bounds
+        let screenWidth = screenRect.size.width
+        
+        var widthConstraint = NSLayoutConstraint(item: productHorizontalReelView1.seeAllOutlet, attribute: NSLayoutConstraint.Attribute.width, relatedBy: NSLayoutConstraint.Relation.equal, toItem: nil, attribute: NSLayoutConstraint.Attribute.notAnAttribute, multiplier: 1, constant: screenWidth-46)
+//        let leadingConstraint = NSLayoutConstraint(item: productHorizontalReelView1.seeAllOutlet, attribute: .leading, relatedBy: .equal, toItem: view.safeAreaLayoutGuide, attribute: .trailing, multiplier: 1, constant: 23)
+        productHorizontalReelView1.seeAllOutlet.addConstraints([widthConstraint])
+
+        var centerXConstraint = NSLayoutConstraint(item: productHorizontalReelView1.productReelLabel,
+                                    attribute: .centerX,
+                                    relatedBy: .equal,
+                                    toItem: productHorizontalReelView1,
+                                    attribute: .centerX,
+                                    multiplier: 1,
+                                    constant: 0)
+        var centerXConstraintBtn = NSLayoutConstraint(item: productHorizontalReelView1.seeAllOutlet,
+                                    attribute: .centerX,
+                                    relatedBy: .equal,
+                                    toItem: productHorizontalReelView1,
+                                    attribute: .centerX,
+                                    multiplier: 1,
+                                    constant: 0)
+        
+        productHorizontalReelView1.addConstraints([centerXConstraint])
+        productHorizontalReelView1.addConstraints([centerXConstraintBtn])
     }
     
     func setupProductCollectionViewCell() {

@@ -104,10 +104,10 @@
                     </state>
                 </button>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Health Bestsellers" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="juf-gG-Sk4">
-                    <rect key="frame" x="0.0" y="0.0" width="414" height="36"/>
+                    <rect key="frame" x="23" y="0.0" width="368" height="36"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="36" id="JN5-XE-WzJ"/>
-                        <constraint firstAttribute="width" constant="414" id="h3c-5q-V6m"/>
+                        <constraint firstAttribute="width" constant="368" id="h3c-5q-V6m"/>
                     </constraints>
                     <fontDescription key="fontDescription" type="system" pointSize="20"/>
                     <nil key="textColor"/>
@@ -121,7 +121,7 @@
                 <constraint firstItem="uyx-47-71c" firstAttribute="trailing" secondItem="vUN-kp-3ea" secondAttribute="trailing" id="88H-hP-VyU"/>
                 <constraint firstItem="dFU-Fi-CU9" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" constant="23" id="E3W-Mx-4GE"/>
                 <constraint firstAttribute="bottom" secondItem="dFU-Fi-CU9" secondAttribute="bottom" id="QDt-t3-N4U"/>
-                <constraint firstItem="juf-gG-Sk4" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="Yf8-Ky-USX"/>
+                <constraint firstItem="juf-gG-Sk4" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="23" id="Yf8-Ky-USX"/>
                 <constraint firstItem="dFU-Fi-CU9" firstAttribute="top" secondItem="uyx-47-71c" secondAttribute="bottom" constant="22" id="d2n-XO-HHO"/>
                 <constraint firstItem="uyx-47-71c" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" id="jfx-A8-BL1"/>
                 <constraint firstItem="uyx-47-71c" firstAttribute="top" secondItem="juf-gG-Sk4" secondAttribute="bottom" constant="8" id="kzL-WF-kNs"/>
