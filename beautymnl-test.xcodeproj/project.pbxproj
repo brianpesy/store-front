@@ -7,6 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		32A37AE625FC5945005D2825 /* FeaturedBrandView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32A37AE525FC5945005D2825 /* FeaturedBrandView.swift */; };
+		32A37AE925FC5957005D2825 /* FeaturedBrandView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 32A37AE825FC5957005D2825 /* FeaturedBrandView.xib */; };
+		32A37AEC25FC873D005D2825 /* FeaturedView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 32A37AEB25FC873D005D2825 /* FeaturedView.xib */; };
+		32A37AEF25FC8750005D2825 /* FeaturedView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32A37AEE25FC8750005D2825 /* FeaturedView.swift */; };
 		32AF8E2425F8970B008CB261 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32AF8E2325F8970B008CB261 /* AppDelegate.swift */; };
 		32AF8E2625F8970B008CB261 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32AF8E2525F8970B008CB261 /* SceneDelegate.swift */; };
 		32AF8E2825F8970B008CB261 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 32AF8E2725F8970B008CB261 /* ViewController.swift */; };
@@ -27,6 +31,10 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		32A37AE525FC5945005D2825 /* FeaturedBrandView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeaturedBrandView.swift; sourceTree = "<group>"; };
+		32A37AE825FC5957005D2825 /* FeaturedBrandView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = FeaturedBrandView.xib; sourceTree = "<group>"; };
+		32A37AEB25FC873D005D2825 /* FeaturedView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = FeaturedView.xib; sourceTree = "<group>"; };
+		32A37AEE25FC8750005D2825 /* FeaturedView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeaturedView.swift; sourceTree = "<group>"; };
 		32AF8E2025F8970B008CB261 /* beautymnl-test.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "beautymnl-test.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		32AF8E2325F8970B008CB261 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		32AF8E2525F8970B008CB261 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -104,6 +112,10 @@
 				32AF8E6D25FA088C008CB261 /* ProductView.xib */,
 				32AF8E7025FA1AF8008CB261 /* ProductCollectionViewCell.swift */,
 				32AF8E7125FA1AF8008CB261 /* ProductCollectionViewCell.xib */,
+				32A37AE525FC5945005D2825 /* FeaturedBrandView.swift */,
+				32A37AE825FC5957005D2825 /* FeaturedBrandView.xib */,
+				32A37AEE25FC8750005D2825 /* FeaturedView.swift */,
+				32A37AEB25FC873D005D2825 /* FeaturedView.xib */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -170,6 +182,8 @@
 				32AF8E3A25F8B26C008CB261 /* NavigationBarView.xib in Resources */,
 				32AF8E2D25F8970E008CB261 /* Assets.xcassets in Resources */,
 				32AF8E2B25F8970B008CB261 /* Main.storyboard in Resources */,
+				32A37AE925FC5957005D2825 /* FeaturedBrandView.xib in Resources */,
+				32A37AEC25FC873D005D2825 /* FeaturedView.xib in Resources */,
 				32AF8E5725F910A8008CB261 /* CarouselViewCell.xib in Resources */,
 				32AF8E7325FA1AF8008CB261 /* ProductCollectionViewCell.xib in Resources */,
 				32AF8E6E25FA088C008CB261 /* ProductView.xib in Resources */,
@@ -190,7 +204,9 @@
 				32AF8E2625F8970B008CB261 /* SceneDelegate.swift in Sources */,
 				32AF8E5B25F98CC6008CB261 /* UICollectionView+.swift in Sources */,
 				32AF8E4525F8B7CE008CB261 /* NavigationBarView.swift in Sources */,
+				32A37AEF25FC8750005D2825 /* FeaturedView.swift in Sources */,
 				32AF8E7225FA1AF8008CB261 /* ProductCollectionViewCell.swift in Sources */,
+				32A37AE625FC5945005D2825 /* FeaturedBrandView.swift in Sources */,
 				32AF8E6125F9B0F4008CB261 /* ProductHorizontalReelView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

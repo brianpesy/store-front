@@ -56,6 +56,10 @@ class ViewController: UIViewController, UICollectionViewDelegate, UICollectionVi
     @IBOutlet weak var productHorizontalReelView1: ProductHorizontalReelView!
     @IBOutlet weak var trendingView: UICollectionView!
     @IBOutlet weak var trendingPageControl: UIPageControl!
+    @IBOutlet weak var featuredBrandView: FeaturedBrandView!
+    @IBOutlet weak var productHorizontalReelView2: ProductHorizontalReelView!
+    
+    
     
     // MARK: - Setting up Collection Views
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
@@ -153,7 +157,6 @@ class ViewController: UIViewController, UICollectionViewDelegate, UICollectionVi
         
         self.carouselView.scrollToNearestVisibleCollectionViewCell()
         carouselPageControl?.currentPage = Int(scrollView.contentOffset.x) / Int(scrollView.frame.width)
-//        trendingPageControl?.currentPage = Int(scrollView.contentOffset.x) / Int(scrollView.frame.width)
 
     }
 
@@ -162,7 +165,6 @@ class ViewController: UIViewController, UICollectionViewDelegate, UICollectionVi
             self.carouselView.scrollToNearestVisibleCollectionViewCell()
         }
         carouselPageControl?.currentPage = Int(scrollView.contentOffset.x) / Int(scrollView.frame.width)
-//        trendingPageControl?.currentPage = Int(scrollView.contentOffset.x) / Int(scrollView.frame.width)
 
     }
     
@@ -180,7 +182,6 @@ class ViewController: UIViewController, UICollectionViewDelegate, UICollectionVi
             var index = indexes.first!
             let cell = self.trendingView.cellForItem(at: index)!
             let position = self.trendingView.contentOffset.x - cell.frame.origin.x
-            print("STUFF: ", self.trendingView.contentOffset.x, "|", cell.frame.origin.x, "|", position, "|", cell.frame.size.width)
             //to scroll to the 6th index (6 in a page)
             if index.row >= 6 {
                 index.row = 6
@@ -263,6 +264,10 @@ class ViewController: UIViewController, UICollectionViewDelegate, UICollectionVi
         setupAlert(title: "Button pressed", message: "Product reel - 3")
     }
     
+    @objc func tapFeaturedBrand(_ sender: UITapGestureRecognizer) {
+        setupAlert(title: "Button pressed", message: "Featured Brand")
+    }
+    
     //MARK: - Tap Setup
     func setupTaps(){
         
@@ -319,6 +324,27 @@ class ViewController: UIViewController, UICollectionViewDelegate, UICollectionVi
         productHorizontalReelView1.productView.addGestureRecognizer(productReelTap)
         productHorizontalReelView1.productView2.addGestureRecognizer(productReelTap2)
         productHorizontalReelView1.productView3.addGestureRecognizer(productReelTap3)
+        
+        /// Featured Brands taps
+        
+        let featuredBrandTap = UITapGestureRecognizer(target: self, action: #selector(self.tapFeaturedBrand(_:)))
+        featuredBrandView.addGestureRecognizer(featuredBrandTap)
+        
+        /// Product reel 2 taps
+        let goToTap2 = UITapGestureRecognizer(target: self, action: #selector(self.tapGoTo(_:)))
+        productHorizontalReelView2.seeAllOutlet.addGestureRecognizer(goToTap2)
+        
+        let seeAllTap2 = UITapGestureRecognizer(target: self, action: #selector(self.tapSeeAll(_:)))
+        productHorizontalReelView2.seeAllView.isUserInteractionEnabled = true
+        productHorizontalReelView2.seeAllView.addGestureRecognizer(seeAllTap2)
+        
+        let productReelTap21 = UITapGestureRecognizer(target: self, action: #selector(self.tapProductReel(_:)))
+        let productReelTap22 = UITapGestureRecognizer(target: self, action: #selector(self.tapProductReel2(_:)))
+        let productReelTap23 = UITapGestureRecognizer(target: self, action: #selector(self.tapProductReel3(_:)))
+
+        productHorizontalReelView2.productView.addGestureRecognizer(productReelTap21)
+        productHorizontalReelView2.productView2.addGestureRecognizer(productReelTap22)
+        productHorizontalReelView2.productView3.addGestureRecognizer(productReelTap23)
     }
 
     //MARK: - Functions
@@ -340,7 +366,7 @@ class ViewController: UIViewController, UICollectionViewDelegate, UICollectionVi
         productHorizontalReelView1.seeAllOutlet.layer.cornerRadius = 5
         productHorizontalReelView1.seeAllOutlet.layer.borderWidth = 1
         productHorizontalReelView1.seeAllOutlet.layer.borderColor = UIColor.black.cgColor
-        
+                
         productHorizontalReelView1.productView.productImage.image = productReelImages[0]
         productHorizontalReelView1.productView.brandLabel.text = "Healthy Cars"
         productHorizontalReelView1.productView.nameLabel.text = "Electronic Car"
@@ -413,6 +439,75 @@ class ViewController: UIViewController, UICollectionViewDelegate, UICollectionVi
         trendingView.scrollToNearestVisibleCollectionViewCell()
     }
     
+    func setupProductHorizontalReel2(){
+        productHorizontalReelView2.seeAllOutlet.layer.cornerRadius = 5
+        productHorizontalReelView2.seeAllOutlet.layer.borderWidth = 1
+        productHorizontalReelView2.seeAllOutlet.layer.borderColor = UIColor.black.cgColor
+        
+        productHorizontalReelView2.productView.productImage.image = productReelImages[0]
+        productHorizontalReelView2.productView.brandLabel.text = "Healthy Cars"
+        productHorizontalReelView2.productView.nameLabel.text = "Electronic Car"
+        productHorizontalReelView2.productView.priceLabel.text = "₱100000"
+        productHorizontalReelView2.productView.star1.image = ratingImages[0]
+        productHorizontalReelView2.productView.star2.image = ratingImages[0]
+        productHorizontalReelView2.productView.star3.image = ratingImages[0]
+        productHorizontalReelView2.productView.star4.image = ratingImages[0]
+        productHorizontalReelView2.productView.star5.image = ratingImages[1]
+        productHorizontalReelView2.productView.ratingNumberLabel.text = "7"
+        
+        productHorizontalReelView2.productView2.productImage.image = productReelImages[1]
+        productHorizontalReelView2.productView2.brandLabel.text = "Loot-ion"
+        productHorizontalReelView2.productView2.nameLabel.text = "Hand Lotion"
+        productHorizontalReelView2.productView2.priceLabel.text = "₱600"
+        productHorizontalReelView2.productView2.star1.image = ratingImages[0]
+        productHorizontalReelView2.productView2.star2.image = ratingImages[0]
+        productHorizontalReelView2.productView2.star3.image = ratingImages[0]
+        productHorizontalReelView2.productView2.star4.image = ratingImages[0]
+        productHorizontalReelView2.productView2.star5.image = ratingImages[0]
+        productHorizontalReelView2.productView2.ratingNumberLabel.text = "2311"
+        
+        productHorizontalReelView2.productView3.productImage.image = productReelImages[2]
+        productHorizontalReelView2.productView3.brandLabel.text = "Nice Cups"
+        productHorizontalReelView2.productView3.nameLabel.text = "Red Cup"
+        productHorizontalReelView2.productView3.priceLabel.text = "₱100"
+        productHorizontalReelView2.productView3.star1.image = ratingImages[0]
+        productHorizontalReelView2.productView3.star2.image = ratingImages[0]
+        productHorizontalReelView2.productView3.star3.image = ratingImages[1]
+        productHorizontalReelView2.productView3.star4.image = ratingImages[1]
+        productHorizontalReelView2.productView3.star5.image = ratingImages[1]
+        productHorizontalReelView2.productView3.ratingNumberLabel.text = "498"
+        
+        let screenRect = UIScreen.main.bounds
+        let screenWidth = screenRect.size.width
+        
+        let widthConstraint = NSLayoutConstraint(item: productHorizontalReelView2.seeAllOutlet,
+                                                 attribute: .width,
+                                                 relatedBy: .equal,
+                                                 toItem: nil,
+                                                 attribute: .notAnAttribute,
+                                                 multiplier: 1,
+                                                 constant: screenWidth-46)
+        productHorizontalReelView2.seeAllOutlet.addConstraints([widthConstraint])
+
+        let centerXConstraint = NSLayoutConstraint(item: productHorizontalReelView2.productReelLabel,
+                                    attribute: .centerX,
+                                    relatedBy: .equal,
+                                    toItem: productHorizontalReelView2,
+                                    attribute: .centerX,
+                                    multiplier: 1,
+                                    constant: 0)
+        let centerXConstraintBtn = NSLayoutConstraint(item: productHorizontalReelView2.seeAllOutlet,
+                                    attribute: .centerX,
+                                    relatedBy: .equal,
+                                    toItem: productHorizontalReelView2,
+                                    attribute: .centerX,
+                                    multiplier: 1,
+                                    constant: 0)
+        
+        productHorizontalReelView2.addConstraints([centerXConstraint])
+        productHorizontalReelView2.addConstraints([centerXConstraintBtn])
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
@@ -420,6 +515,8 @@ class ViewController: UIViewController, UICollectionViewDelegate, UICollectionVi
         setupCarousel()
         setupProductHorizontalReel1()
         setupProductCollectionViewCell()
+        
+        setupProductHorizontalReel2()
         
     }
     
