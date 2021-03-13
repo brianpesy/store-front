@@ -57,6 +57,7 @@
                 <constraint firstItem="H20-Wf-QCe" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" id="Mrk-Ga-v0F"/>
             </constraints>
             <connections>
+                <outlet property="contentView" destination="H20-Wf-QCe" id="t0G-FA-LJf"/>
                 <outlet property="productImage" destination="rtv-BW-R1d" id="ccU-5D-tal"/>
                 <outlet property="productLabel" destination="YRR-7Y-eAB" id="y05-q9-pnH"/>
             </connections>
