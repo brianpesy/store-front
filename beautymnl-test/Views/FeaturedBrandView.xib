@@ -11,6 +11,8 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="FeaturedBrandView" customModule="beautymnl_test" customModuleProvider="target">
             <connections>
                 <outlet property="contentView" destination="iN0-l3-epB" id="z0f-j4-X6Y"/>
+                <outlet property="featuredImage" destination="bOE-L1-PnG" id="e5b-4G-6Zg"/>
+                <outlet property="featuredLabel" destination="xTy-hQ-lMZ" id="uKg-pP-Ea8"/>
             </connections>
         </placeholder>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>

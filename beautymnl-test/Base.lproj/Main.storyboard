@@ -121,35 +121,34 @@
                                             <constraint firstAttribute="width" constant="414" id="cTf-h7-vaz"/>
                                         </constraints>
                                     </view>
-                                    <view contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="ZoQ-3B-gja">
-                                        <rect key="frame" x="87" y="2669" width="240" height="128"/>
-                                        <color key="backgroundColor" systemColor="systemGreenColor"/>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="lkK-qZ-Bgl" customClass="FeaturedView" customModule="beautymnl_test" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="1943" width="414" height="735"/>
+                                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                         <constraints>
-                                            <constraint firstAttribute="height" constant="128" id="X9D-S8-Y1c"/>
+                                            <constraint firstAttribute="height" constant="735" id="Mhl-0d-mp1"/>
                                         </constraints>
                                     </view>
                                 </subviews>
                                 <constraints>
                                     <constraint firstItem="BuA-a7-8QF" firstAttribute="top" secondItem="Eco-Cm-bC4" secondAttribute="top" constant="8" id="0TY-oq-BYO"/>
-                                    <constraint firstItem="ZoQ-3B-gja" firstAttribute="leading" secondItem="Eco-Cm-bC4" secondAttribute="leading" constant="87" id="20Y-8l-zXp"/>
+                                    <constraint firstItem="lkK-qZ-Bgl" firstAttribute="leading" secondItem="Eco-Cm-bC4" secondAttribute="leading" id="1Nb-5N-AeB"/>
                                     <constraint firstItem="EKN-KK-KeK" firstAttribute="top" secondItem="BuA-a7-8QF" secondAttribute="bottom" constant="8" symbolic="YES" id="3UK-wO-Rw4"/>
                                     <constraint firstAttribute="trailing" secondItem="Iwl-6y-8fn" secondAttribute="trailing" id="5kg-zw-cze"/>
                                     <constraint firstItem="Iwl-6y-8fn" firstAttribute="leading" secondItem="Eco-Cm-bC4" secondAttribute="leading" id="67l-Jf-bNK"/>
                                     <constraint firstItem="8hz-WQ-Mvp" firstAttribute="top" secondItem="Iwl-6y-8fn" secondAttribute="bottom" constant="34" id="857-sn-dXn"/>
+                                    <constraint firstAttribute="bottom" secondItem="lkK-qZ-Bgl" secondAttribute="bottom" constant="101" id="9ZD-QM-zNE"/>
                                     <constraint firstAttribute="trailing" secondItem="cHZ-UF-OA1" secondAttribute="trailing" id="CIq-us-J5D"/>
                                     <constraint firstItem="8hz-WQ-Mvp" firstAttribute="centerX" secondItem="Eco-Cm-bC4" secondAttribute="centerX" id="D0m-qL-aiB"/>
                                     <constraint firstItem="BuA-a7-8QF" firstAttribute="leading" secondItem="Eco-Cm-bC4" secondAttribute="leading" id="EpL-f8-akB"/>
                                     <constraint firstItem="vx0-G1-gc5" firstAttribute="centerX" secondItem="Eco-Cm-bC4" secondAttribute="centerX" id="FLW-2f-qfU"/>
                                     <constraint firstItem="SQG-rI-R50" firstAttribute="top" secondItem="vx0-G1-gc5" secondAttribute="bottom" constant="20" id="Fwj-Q9-w9I"/>
                                     <constraint firstItem="Iwl-6y-8fn" firstAttribute="top" secondItem="EKN-KK-KeK" secondAttribute="bottom" constant="8" symbolic="YES" id="H9F-jr-TnF"/>
-                                    <constraint firstItem="ZoQ-3B-gja" firstAttribute="top" secondItem="6Jv-ov-0BD" secondAttribute="bottom" constant="169" id="Hz2-Ed-Z78"/>
-                                    <constraint firstAttribute="trailing" secondItem="ZoQ-3B-gja" secondAttribute="trailing" constant="87" id="NI4-LT-Lv1"/>
                                     <constraint firstAttribute="trailing" secondItem="6Jv-ov-0BD" secondAttribute="trailing" id="Ohf-K8-Fbh"/>
                                     <constraint firstAttribute="trailing" secondItem="BuA-a7-8QF" secondAttribute="trailing" id="RCQ-so-Eui"/>
-                                    <constraint firstAttribute="bottom" secondItem="ZoQ-3B-gja" secondAttribute="bottom" constant="1162" id="SJ3-Gq-qQu"/>
                                     <constraint firstItem="RDt-tj-zbF" firstAttribute="top" secondItem="cHZ-UF-OA1" secondAttribute="bottom" constant="8" symbolic="YES" id="SKy-a4-nZE"/>
                                     <constraint firstItem="vx0-G1-gc5" firstAttribute="top" secondItem="RDt-tj-zbF" secondAttribute="bottom" constant="17" id="TQM-rB-LjF"/>
                                     <constraint firstAttribute="trailing" secondItem="BuA-a7-8QF" secondAttribute="trailing" id="Tzn-qk-fb7"/>
+                                    <constraint firstItem="lkK-qZ-Bgl" firstAttribute="top" secondItem="6Jv-ov-0BD" secondAttribute="bottom" constant="36.5" id="ZBC-qr-H4G"/>
                                     <constraint firstItem="cHZ-UF-OA1" firstAttribute="top" secondItem="8hz-WQ-Mvp" secondAttribute="bottom" constant="13.5" id="ZGt-YA-l7P"/>
                                     <constraint firstItem="EKN-KK-KeK" firstAttribute="centerX" secondItem="Eco-Cm-bC4" secondAttribute="centerX" id="f1u-M0-48c"/>
                                     <constraint firstItem="RDt-tj-zbF" firstAttribute="centerX" secondItem="Eco-Cm-bC4" secondAttribute="centerX" id="h7k-u3-98r"/>
@@ -157,6 +156,7 @@
                                     <constraint firstItem="6Jv-ov-0BD" firstAttribute="leading" secondItem="Eco-Cm-bC4" secondAttribute="leading" id="k5u-12-gIf"/>
                                     <constraint firstAttribute="trailing" secondItem="SQG-rI-R50" secondAttribute="trailing" id="lgX-bP-TKP"/>
                                     <constraint firstItem="6Jv-ov-0BD" firstAttribute="top" secondItem="SQG-rI-R50" secondAttribute="bottom" constant="41" id="myA-70-y7O"/>
+                                    <constraint firstAttribute="trailing" secondItem="lkK-qZ-Bgl" secondAttribute="trailing" id="tMX-Rn-jJ9"/>
                                     <constraint firstItem="SQG-rI-R50" firstAttribute="leading" secondItem="Eco-Cm-bC4" secondAttribute="leading" id="zrt-6I-Wip"/>
                                 </constraints>
                             </scrollView>
@@ -234,6 +234,7 @@
                         <outlet property="carouselView" destination="BuA-a7-8QF" id="Dye-tL-UJ3"/>
                         <outlet property="contentView" destination="8bC-Xf-vdC" id="qai-fO-OhW"/>
                         <outlet property="featuredBrandView" destination="SQG-rI-R50" id="fO1-zq-CE5"/>
+                        <outlet property="featuredView" destination="lkK-qZ-Bgl" id="3ju-g0-074"/>
                         <outlet property="navBarView" destination="A1u-Aj-IB2" id="HnW-Kx-dl2"/>
                         <outlet property="productHorizontalReelView1" destination="Iwl-6y-8fn" id="ZkG-qb-KU8"/>
                         <outlet property="productHorizontalReelView2" destination="6Jv-ov-0BD" id="m7I-gW-q9f"/>
@@ -257,9 +258,6 @@
         </systemColor>
         <systemColor name="systemGray3Color">
             <color red="0.7803921568627451" green="0.7803921568627451" blue="0.80000000000000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-        </systemColor>
-        <systemColor name="systemGreenColor">
-            <color red="0.20392156862745098" green="0.7803921568627451" blue="0.34901960784313724" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
         <systemColor name="systemIndigoColor">
             <color red="0.34509803921568627" green="0.33725490196078434" blue="0.83921568627450982" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>

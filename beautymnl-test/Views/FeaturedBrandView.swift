@@ -10,6 +10,8 @@ import UIKit
 class FeaturedBrandView: UIView {
 
     @IBOutlet var contentView: UIView!
+    @IBOutlet weak var featuredImage: UIImageView!
+    @IBOutlet weak var featuredLabel: UILabel!
     
     override init(frame: CGRect) {
         super.init(frame: frame)

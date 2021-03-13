@@ -58,7 +58,7 @@ class ViewController: UIViewController, UICollectionViewDelegate, UICollectionVi
     @IBOutlet weak var trendingPageControl: UIPageControl!
     @IBOutlet weak var featuredBrandView: FeaturedBrandView!
     @IBOutlet weak var productHorizontalReelView2: ProductHorizontalReelView!
-    
+    @IBOutlet weak var featuredView: FeaturedView!
     
     
     // MARK: - Setting up Collection Views
@@ -439,6 +439,11 @@ class ViewController: UIViewController, UICollectionViewDelegate, UICollectionVi
         trendingView.scrollToNearestVisibleCollectionViewCell()
     }
     
+    func setupFeaturedBrand(){
+        featuredBrandView.featuredImage.layer.cornerRadius = 5.0
+        featuredBrandView.featuredImage.layer.masksToBounds = true
+    }
+    
     func setupProductHorizontalReel2(){
         productHorizontalReelView2.seeAllOutlet.layer.cornerRadius = 5
         productHorizontalReelView2.seeAllOutlet.layer.borderWidth = 1
@@ -508,6 +513,94 @@ class ViewController: UIViewController, UICollectionViewDelegate, UICollectionVi
         productHorizontalReelView2.addConstraints([centerXConstraintBtn])
     }
     
+    func setupFeaturedView() {
+        featuredView.seeAllOutlet.layer.cornerRadius = 5
+        featuredView.seeAllOutlet.layer.borderWidth = 1
+        featuredView.seeAllOutlet.layer.borderColor = UIColor.black.cgColor
+                
+        featuredView.productView.productImage.image = productReelImages[0]
+        featuredView.productView.brandLabel.text = "Healthy Cars"
+        featuredView.productView.nameLabel.text = "Electronic Car"
+        featuredView.productView.priceLabel.text = "₱100000"
+        featuredView.productView.star1.image = ratingImages[0]
+        featuredView.productView.star2.image = ratingImages[0]
+        featuredView.productView.star3.image = ratingImages[0]
+        featuredView.productView.star4.image = ratingImages[0]
+        featuredView.productView.star5.image = ratingImages[1]
+        featuredView.productView.ratingNumberLabel.text = "7"
+        
+//        productHorizontalReelView1.productView2.productImage.image = productReelImages[1]
+//        productHorizontalReelView1.productView2.brandLabel.text = "Loot-ion"
+//        productHorizontalReelView1.productView2.nameLabel.text = "Hand Lotion"
+//        productHorizontalReelView1.productView2.priceLabel.text = "₱600"
+//        productHorizontalReelView1.productView2.star1.image = ratingImages[0]
+//        productHorizontalReelView1.productView2.star2.image = ratingImages[0]
+//        productHorizontalReelView1.productView2.star3.image = ratingImages[0]
+//        productHorizontalReelView1.productView2.star4.image = ratingImages[0]
+//        productHorizontalReelView1.productView2.star5.image = ratingImages[0]
+//        productHorizontalReelView1.productView2.ratingNumberLabel.text = "2311"
+//
+//        productHorizontalReelView1.productView3.productImage.image = productReelImages[2]
+//        productHorizontalReelView1.productView3.brandLabel.text = "Nice Cups"
+//        productHorizontalReelView1.productView3.nameLabel.text = "Red Cup"
+//        productHorizontalReelView1.productView3.priceLabel.text = "₱100"
+//        productHorizontalReelView1.productView3.star1.image = ratingImages[0]
+//        productHorizontalReelView1.productView3.star2.image = ratingImages[0]
+//        productHorizontalReelView1.productView3.star3.image = ratingImages[1]
+//        productHorizontalReelView1.productView3.star4.image = ratingImages[1]
+//        productHorizontalReelView1.productView3.star5.image = ratingImages[1]
+//        productHorizontalReelView1.productView3.ratingNumberLabel.text = "498"
+        
+        let screenRect = UIScreen.main.bounds
+        let screenWidth = screenRect.size.width
+        
+        let widthConstraint = NSLayoutConstraint(item: featuredView.seeAllOutlet,
+                                                 attribute: .width,
+                                                 relatedBy: .equal,
+                                                 toItem: nil,
+                                                 attribute: .notAnAttribute,
+                                                 multiplier: 1,
+                                                 constant: screenWidth-46)
+        featuredView.seeAllOutlet.addConstraints([widthConstraint])
+
+        var centerXConstraint = NSLayoutConstraint(item: featuredView.featuredLabel,
+                                    attribute: .centerX,
+                                    relatedBy: .equal,
+                                    toItem: featuredView,
+                                    attribute: .centerX,
+                                    multiplier: 1,
+                                    constant: 0)
+        featuredView.addConstraints([centerXConstraint])
+
+        centerXConstraint = NSLayoutConstraint(item: featuredView.featuredBrandLabel,
+                                    attribute: .centerX,
+                                    relatedBy: .equal,
+                                    toItem: featuredView,
+                                    attribute: .centerX,
+                                    multiplier: 1,
+                                    constant: 0)
+        featuredView.addConstraints([centerXConstraint])
+
+        centerXConstraint = NSLayoutConstraint(item: featuredView.featuredBrandImage,
+                                    attribute: .centerX,
+                                    relatedBy: .equal,
+                                    toItem: featuredView,
+                                    attribute: .centerX,
+                                    multiplier: 1,
+                                    constant: 0)
+        featuredView.addConstraints([centerXConstraint])
+
+        let centerXConstraintBtn = NSLayoutConstraint(item: featuredView.seeAllOutlet,
+                                    attribute: .centerX,
+                                    relatedBy: .equal,
+                                    toItem: featuredView,
+                                    attribute: .centerX,
+                                    multiplier: 1,
+                                    constant: 0)
+        
+        featuredView.addConstraints([centerXConstraintBtn])
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
@@ -515,9 +608,9 @@ class ViewController: UIViewController, UICollectionViewDelegate, UICollectionVi
         setupCarousel()
         setupProductHorizontalReel1()
         setupProductCollectionViewCell()
-        
+        setupFeaturedBrand()
         setupProductHorizontalReel2()
-        
+        setupFeaturedView()
     }
     
 }
