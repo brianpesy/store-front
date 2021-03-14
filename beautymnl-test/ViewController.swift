@@ -84,8 +84,10 @@ class ViewController: UIViewController, UICollectionViewDelegate, UICollectionVi
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         if collectionView == self.carouselView {
             return self.carouselImages.count
+        } else if collectionView == self.trendingView {
+            return self.trendingImages.count
         }
-        return 12
+        return 0
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
@@ -108,7 +110,7 @@ class ViewController: UIViewController, UICollectionViewDelegate, UICollectionVi
                                                     toItem: nil,
                                                     attribute: .notAnAttribute,
                                                     multiplier: 1,
-                                                    constant: (screenWidth/3) - 33)
+                                                    constant: (screenWidth/3) - 43)
             var heightConstraint = NSLayoutConstraint(item: cell,
                                                       attribute: .height,
                                                       relatedBy: .equal,
@@ -124,7 +126,7 @@ class ViewController: UIViewController, UICollectionViewDelegate, UICollectionVi
                                                     toItem: nil,
                                                     attribute: .notAnAttribute,
                                                     multiplier: 1,
-                                                    constant: (screenWidth/3) - 43)
+                                                    constant: (screenWidth/3) - 53)
             var centerXConstraint = NSLayoutConstraint(item: cell.productImage,
                                         attribute: .centerX,
                                         relatedBy: .equal,
@@ -536,6 +538,8 @@ class ViewController: UIViewController, UICollectionViewDelegate, UICollectionVi
         productHorizontalReelView2.productView3.star5.image = ratingImages[1]
         productHorizontalReelView2.productView3.ratingNumberLabel.text = "562"
         
+        productHorizontalReelView2.seeAllView.image = UIImage(named: "see-all-2")
+        
         let screenRect = UIScreen.main.bounds
         let screenWidth = screenRect.size.width
         
@@ -571,6 +575,9 @@ class ViewController: UIViewController, UICollectionViewDelegate, UICollectionVi
         featuredView.seeAllOutlet.layer.cornerRadius = 5
         featuredView.seeAllOutlet.layer.borderWidth = 1
         featuredView.seeAllOutlet.layer.borderColor = UIColor.black.cgColor
+        
+        featuredView.featuredBrandImage.layer.cornerRadius = 5.0
+        featuredView.featuredBrandImage.layer.masksToBounds = true
                 
         featuredView.productView.productImage.image = featuredImages[0]
         featuredView.productView.brandLabel.text = "LOOT-ION"
