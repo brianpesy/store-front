@@ -185,7 +185,7 @@
                                 <textInputTraits key="textInputTraits"/>
                             </searchBar>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="bar-logo" translatesAutoresizingMaskIntoConstraints="NO" id="G6t-op-HRs">
-                                <rect key="frame" x="99" y="65" width="216" height="31"/>
+                                <rect key="frame" x="99" y="55" width="216" height="31"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="216" id="1dx-5g-aGc"/>
                                     <constraint firstAttribute="height" constant="31" id="rQW-Q1-37I"/>
@@ -224,7 +224,7 @@
                             <constraint firstAttribute="bottom" secondItem="Eco-Cm-bC4" secondAttribute="bottom" id="5gO-lu-5aG"/>
                             <constraint firstItem="G6t-op-HRs" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" constant="99" id="7nD-gF-Mnw"/>
                             <constraint firstItem="A1u-Aj-IB2" firstAttribute="top" secondItem="b9Y-qM-pH2" secondAttribute="bottom" constant="13" id="9fe-an-xR9"/>
-                            <constraint firstItem="G6t-op-HRs" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" constant="65" id="9kO-7H-io5"/>
+                            <constraint firstItem="G6t-op-HRs" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" constant="55" id="9kO-7H-io5"/>
                             <constraint firstItem="A1u-Aj-IB2" firstAttribute="top" secondItem="Uau-kd-uHw" secondAttribute="bottom" id="9lK-kD-PZX"/>
                             <constraint firstItem="A1u-Aj-IB2" firstAttribute="top" secondItem="Uau-kd-uHw" secondAttribute="bottom" id="E6X-2s-zB6"/>
                             <constraint firstItem="Uau-kd-uHw" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="EVi-rM-uhH"/>
@@ -233,7 +233,7 @@
                             <constraint firstItem="Eco-Cm-bC4" firstAttribute="top" secondItem="A1u-Aj-IB2" secondAttribute="bottom" id="JK0-cn-xDc"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="b9Y-qM-pH2" secondAttribute="trailing" constant="9" id="LUG-fT-uO9"/>
                             <constraint firstItem="A1u-Aj-IB2" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="LYm-md-Kuu"/>
-                            <constraint firstItem="Uau-kd-uHw" firstAttribute="top" secondItem="G6t-op-HRs" secondAttribute="bottom" constant="2" id="Qvn-yv-zvv"/>
+                            <constraint firstItem="Uau-kd-uHw" firstAttribute="top" secondItem="G6t-op-HRs" secondAttribute="bottom" constant="12" id="Qvn-yv-zvv"/>
                             <constraint firstItem="Eco-Cm-bC4" firstAttribute="width" secondItem="8bC-Xf-vdC" secondAttribute="width" id="Xk6-O8-0a2"/>
                             <constraint firstItem="BuA-a7-8QF" firstAttribute="width" secondItem="8bC-Xf-vdC" secondAttribute="width" id="dGu-ii-vnV"/>
                             <constraint firstItem="A1u-Aj-IB2" firstAttribute="top" secondItem="Uau-kd-uHw" secondAttribute="bottom" id="i3f-8c-PJP"/>
