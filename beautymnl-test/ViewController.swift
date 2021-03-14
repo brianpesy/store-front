@@ -60,6 +60,12 @@ class ViewController: UIViewController, UICollectionViewDelegate, UICollectionVi
         UIImage(named: "product-11"),
         UIImage(named: "product-12")
     ]
+    
+    var lastContentOffset = CGFloat()
+    var scrollDir = UISwipeGestureRecognizer.Direction.left
+    
+    var timer = Timer()
+    var timerCtr = 0
         
     // MARK: - Setting up Outlets
     @IBOutlet var contentView: UIView!
@@ -164,6 +170,18 @@ class ViewController: UIViewController, UICollectionViewDelegate, UICollectionVi
         let index = scrollView.contentOffset.x / witdh
         let roundedIndex = round(index)
         self.carouselPageControl.currentPage = Int(roundedIndex)
+        
+        if scrollView == self.carouselView {
+            if self.lastContentOffset > scrollView.contentOffset.x {
+                self.scrollDir = UISwipeGestureRecognizer.Direction.left
+//                print("left")
+            }
+            else if self.lastContentOffset < scrollView.contentOffset.x {
+                self.scrollDir = UISwipeGestureRecognizer.Direction.right
+//                print("right")
+            }
+            self.lastContentOffset = scrollView.contentOffset.x
+        }
     }
     
     func scrollViewDidEndDecelerating(_ scrollView: UIScrollView) {
@@ -178,16 +196,31 @@ class ViewController: UIViewController, UICollectionViewDelegate, UICollectionVi
             self.carouselView.scrollToNearestVisibleCollectionViewCell()
         }
         carouselPageControl?.currentPage = Int(scrollView.contentOffset.x) / Int(scrollView.frame.width)
+        
+        if let indexPath = self.carouselView?.indexPathsForVisibleItems[0] {
+            print(indexPath)
+            if indexPath.row == 0 && self.scrollDir == UISwipeGestureRecognizer.Direction.left {
+                       //hide the collection view
+                print("asdlkfj")
+                self.carouselView.scrollToItem(at: [0,2], at: .centeredHorizontally, animated: true )
+                carouselPageControl?.currentPage = 0
+            } else if indexPath.row == 2 && self.scrollDir == UISwipeGestureRecognizer.Direction.right {
+                print("HIHI!")
+                self.carouselView.scrollToItem(at: [0,0], at: .centeredHorizontally, animated: true )
+                carouselPageControl?.currentPage = 2
+            }
+        }
+        
 
     }
     
     func scrollViewWillEndDragging(_ scrollView: UIScrollView, withVelocity velocity: CGPoint, targetContentOffset: UnsafeMutablePointer<CGPoint>) {
         
+        let screenRect = UIScreen.main.bounds
+        let screenWidth = screenRect.size.width
+        
         // scrolling by 6 cells for trending
         if scrollView == self.trendingView {
-            
-            let screenRect = UIScreen.main.bounds
-            let screenWidth = screenRect.size.width
             
             targetContentOffset.pointee = scrollView.contentOffset
             var indexes = self.trendingView.indexPathsForVisibleItems
@@ -213,7 +246,7 @@ class ViewController: UIViewController, UICollectionViewDelegate, UICollectionVi
                     trendingPageControl.currentPage = 1
                 }
             }
-            self.trendingView.scrollToItem(at: index, at: .left, animated: true )
+            self.trendingView.scrollToItem(at: index, at: .centeredHorizontally, animated: true )
         }
         
     }
@@ -320,6 +353,12 @@ class ViewController: UIViewController, UICollectionViewDelegate, UICollectionVi
         
         navBarView.bathAndBodyCareLabel.isUserInteractionEnabled = true
         navBarView.bathAndBodyCareLabel.addGestureRecognizer(navBarTapBB)
+        
+        /// Carousel auto scroll timer
+        DispatchQueue.main.async {
+            self.timer = Timer.scheduledTimer(timeInterval: 10.0, target: self, selector: #selector(self.autoScroll), userInfo: nil, repeats: true)
+        }
+//        timer = Timer.scheduledTimer(timeInterval: 1.0, target: self, selector: #selector(autoScroll), userInfo: nil, repeats: true)
         
         /// Product reel 1 taps
         
@@ -626,6 +665,23 @@ class ViewController: UIViewController, UICollectionViewDelegate, UICollectionVi
         
         featuredView.addConstraints([centerXConstraintBtn])
     }
+    
+    // MARK: - Functions
+    
+    @objc func autoScroll() {
+        if timerCtr < carouselImages.count {
+            let index = IndexPath.init(item: timerCtr, section: 0)
+            self.carouselView.scrollToItem(at: index, at: .centeredHorizontally, animated: true)
+            timerCtr += 1
+        } else {
+            timerCtr = 0
+            let index = IndexPath.init(item: timerCtr, section: 0)
+            self.carouselView.scrollToItem(at: index, at: .centeredHorizontally, animated: true)
+            timerCtr = 1
+        }
+    }
+    
+    // MARK: - ViewDidLoad
     
     override func viewDidLoad() {
         super.viewDidLoad()
