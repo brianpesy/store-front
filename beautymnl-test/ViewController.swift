@@ -80,6 +80,7 @@ class ViewController: UIViewController, UICollectionViewDelegate, UICollectionVi
     @IBOutlet weak var productHorizontalReelView2: ProductHorizontalReelView!
     @IBOutlet weak var featuredView: FeaturedView!
     @IBOutlet weak var tmbTopLabel: UILabel!
+//    @IBOutlet weak var trendingContentView: UICollectionViewCell!
     
     
     // MARK: - Setting up Collection Views
@@ -94,9 +95,6 @@ class ViewController: UIViewController, UICollectionViewDelegate, UICollectionVi
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         
-        let screenRect = UIScreen.main.bounds
-        let screenWidth = screenRect.size.width
-        
         if collectionView == self.carouselView {
             /// Formatting cells in carousel
             let cell = carouselView.dequeueReusableCell(withReuseIdentifier: carouselCellIdentifier, for: indexPath) as! CarouselViewCell
@@ -107,30 +105,70 @@ class ViewController: UIViewController, UICollectionViewDelegate, UICollectionVi
             let cell = trendingView.dequeueReusableCell(withReuseIdentifier: productCollectionViewCellIdentifier, for: indexPath) as! ProductCollectionViewCell
             cell.productImage.image = trendingImages[indexPath.row % trendingImages.count]
             cell.productLabel.text = "Item \(String(indexPath.row % trendingImages.count))"
-            var widthConstraint = NSLayoutConstraint(item: cell,
+            
+            //removing these 2 can center the contentView inside the cell
+            
+            let screenRect = UIScreen.main.bounds
+            let screenWidth = screenRect.size.width
+            
+//
+//            var widthConstraint = NSLayoutConstraint(item: cell,
+//                                                    attribute: .width,
+//                                                    relatedBy: .equal,
+//                                                    toItem: nil,
+//                                                    attribute: .notAnAttribute,
+//                                                    multiplier: 1,
+//                                                    constant: (screenWidth/3) - 40) //35
+//            var heightConstraint = NSLayoutConstraint(item: cell,
+//                                                      attribute: .height,
+//                                                      relatedBy: .equal,
+//                                                      toItem: nil,
+//                                                      attribute: .notAnAttribute,
+//                                                      multiplier: 1,
+//                                                      constant: 165)
+//            var centerXConstraint = NSLayoutConstraint(item: cell,
+//                                        attribute: .centerX,
+//                                        relatedBy: .equal,
+//                                        toItem: cell,
+//                                        attribute: .centerX,
+//                                        multiplier: 1,
+//                                        constant: 0)
+//
+//            cell.addConstraints([widthConstraint, heightConstraint, centerXConstraint])
+            
+            var widthConstraint = NSLayoutConstraint(item: cell.contentView,
                                                     attribute: .width,
                                                     relatedBy: .equal,
                                                     toItem: nil,
                                                     attribute: .notAnAttribute,
                                                     multiplier: 1,
-                                                    constant: (screenWidth/3) - 43)
-            var heightConstraint = NSLayoutConstraint(item: cell,
+                                                    constant: (screenWidth/3) - 40)
+            var heightConstraint = NSLayoutConstraint(item: cell.contentView,
                                                       attribute: .height,
                                                       relatedBy: .equal,
                                                       toItem: nil,
                                                       attribute: .notAnAttribute,
                                                       multiplier: 1,
                                                       constant: 165)
-            cell.addConstraints([widthConstraint, heightConstraint])
+            var centerXConstraint = NSLayoutConstraint(item: cell.contentView,
+                                        attribute: .centerX,
+                                        relatedBy: .equal,
+                                        toItem: cell,
+                                        attribute: .centerX,
+                                        multiplier: 1,
+                                        constant: 0)
 
+            cell.addConstraints([widthConstraint, heightConstraint, centerXConstraint])
+
+            
             widthConstraint = NSLayoutConstraint(item: cell.productImage,
                                                     attribute: .width,
                                                     relatedBy: .equal,
                                                     toItem: nil,
                                                     attribute: .notAnAttribute,
                                                     multiplier: 1,
-                                                    constant: (screenWidth/3) - 53)
-            var centerXConstraint = NSLayoutConstraint(item: cell.productImage,
+                                                    constant: (screenWidth/3) - 73)
+            centerXConstraint = NSLayoutConstraint(item: cell.productImage,
                                         attribute: .centerX,
                                         relatedBy: .equal,
                                         toItem: cell,
@@ -146,7 +184,7 @@ class ViewController: UIViewController, UICollectionViewDelegate, UICollectionVi
                                                     toItem: nil,
                                                     attribute: .notAnAttribute,
                                                     multiplier: 1,
-                                                    constant: (screenWidth/3) - 43)
+                                                    constant: (screenWidth/3) - 65)
             centerXConstraint = NSLayoutConstraint(item: cell.productLabel,
                                         attribute: .centerX,
                                         relatedBy: .equal,
@@ -718,6 +756,17 @@ class ViewController: UIViewController, UICollectionViewDelegate, UICollectionVi
         setupFeaturedBrand()
         setupProductHorizontalReel2()
         setupFeaturedView()
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+        
+        let screenRect = UIScreen.main.bounds
+        let screenWidth = screenRect.size.width
+        
+        if collectionView == self.trendingView { //width of 10 seems to fix it but has clipping issues on larger devices
+            return CGSize(width: 0, height: 165)
+        }
+        return CGSize(width: screenWidth, height: 231)
     }
     
 }
