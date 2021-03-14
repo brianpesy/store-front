@@ -98,7 +98,7 @@ class ViewController: UIViewController, UICollectionViewDelegate, UICollectionVi
         let screenWidth = screenRect.size.width
         
         if collectionView == self.carouselView {
-            /// Formatting cells in carousel
+            /// Formatting cells in carousel 
             let cell = carouselView.dequeueReusableCell(withReuseIdentifier: carouselCellIdentifier, for: indexPath) as! CarouselViewCell
             cell.carouselImage.image = carouselImages[indexPath.row % carouselImages.count]
             return cell
