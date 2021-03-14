@@ -98,7 +98,7 @@ class ViewController: UIViewController, UICollectionViewDelegate, UICollectionVi
         let screenWidth = screenRect.size.width
         
         if collectionView == self.carouselView {
-            /// Formatting cells in carousel 
+            /// Formatting cells in carousel
             let cell = carouselView.dequeueReusableCell(withReuseIdentifier: carouselCellIdentifier, for: indexPath) as! CarouselViewCell
             cell.carouselImage.image = carouselImages[indexPath.row % carouselImages.count]
             return cell
@@ -266,27 +266,27 @@ class ViewController: UIViewController, UICollectionViewDelegate, UICollectionVi
      }
     
     @objc func tapHomeNavBar(_ sender: UITapGestureRecognizer) {
-        setupAlert(title: "Button pressed", message: "Nav bar - Home! This is to show that it's possible to tap each individual label")
+        setupAlert(title: "Button pressed", message: "Nav bar - Home!")
      }
     
     @objc func tapSaleNavBar(_ sender: UITapGestureRecognizer) {
-        setupAlert(title: "Button pressed", message: "Nav bar - On Sale! This is to show that it's possible to tap each individual label")
+        setupAlert(title: "Button pressed", message: "Nav bar - On Sale!")
      }
     
     @objc func tapHealthNavBar(_ sender: UITapGestureRecognizer) {
-        setupAlert(title: "Button pressed", message: "Nav bar - Health! This is to show that it's possible to tap each individual label")
+        setupAlert(title: "Button pressed", message: "Nav bar - Health!")
      }
     
     @objc func tapSkincareNavBar(_ sender: UITapGestureRecognizer) {
-        setupAlert(title: "Button pressed", message: "Nav bar - Skincare! This is to show that it's possible to tap each individual label")
+        setupAlert(title: "Button pressed", message: "Nav bar - Skincare!")
      }
     
     @objc func tapMakeupNavBar(_ sender: UITapGestureRecognizer) {
-        setupAlert(title: "Button pressed", message: "Nav bar - Makeup! This is to show that it's possible to tap each individual label")
+        setupAlert(title: "Button pressed", message: "Nav bar - Makeup!")
      }
     
     @objc func tapBBNavBar(_ sender: UITapGestureRecognizer) {
-        setupAlert(title: "Button pressed", message: "Nav bar - Bath and Body! This is to show that it's possible to tap each individual label")
+        setupAlert(title: "Button pressed", message: "Nav bar - Bath and Body!")
      }
     
     @objc func hideKeyboard() {
