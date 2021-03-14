@@ -98,14 +98,15 @@ class ViewController: UIViewController, UICollectionViewDelegate, UICollectionVi
         let screenWidth = screenRect.size.width
         
         if collectionView == self.carouselView {
+            /// Formatting cells in carousel
             let cell = carouselView.dequeueReusableCell(withReuseIdentifier: carouselCellIdentifier, for: indexPath) as! CarouselViewCell
             cell.carouselImage.image = carouselImages[indexPath.row % carouselImages.count]
             return cell
         } else {
+            /// Formatting cells in trendingView
             let cell = trendingView.dequeueReusableCell(withReuseIdentifier: productCollectionViewCellIdentifier, for: indexPath) as! ProductCollectionViewCell
             cell.productImage.image = trendingImages[indexPath.row % trendingImages.count]
             cell.productLabel.text = "Item \(String(indexPath.row % trendingImages.count))"
-            
             var widthConstraint = NSLayoutConstraint(item: cell,
                                                     attribute: .width,
                                                     relatedBy: .equal,
@@ -162,6 +163,7 @@ class ViewController: UIViewController, UICollectionViewDelegate, UICollectionVi
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        /// Actions for carousel and trending
         if collectionView == self.carouselView {
             setupAlert(title: "Button pressed", message: "Carousel \(indexPath.row)")
         } else {
@@ -170,6 +172,7 @@ class ViewController: UIViewController, UICollectionViewDelegate, UICollectionVi
     }
     
     func scrollViewDidScroll(_ scrollView: UIScrollView) {
+        /// Page contro for carousel, swiping to paginate, and left and right swipes on carousel
         let witdh = scrollView.frame.width - (scrollView.contentInset.left*2)
         let index = scrollView.contentOffset.x / witdh
         let roundedIndex = round(index)
@@ -187,27 +190,25 @@ class ViewController: UIViewController, UICollectionViewDelegate, UICollectionVi
     }
     
     func scrollViewDidEndDecelerating(_ scrollView: UIScrollView) {
-        
+        /// Page control on carousel, swiping to paginate
         self.carouselView.scrollToNearestVisibleCollectionViewCell()
         carouselPageControl?.currentPage = Int(scrollView.contentOffset.x) / Int(scrollView.frame.width)
 
     }
 
     func scrollViewDidEndDragging(_ scrollView: UIScrollView, willDecelerate decelerate: Bool) {
+        /// Page control on carousel, swiping to paginate, and left and right swipes on carousel
         if !decelerate {
             self.carouselView.scrollToNearestVisibleCollectionViewCell()
         }
         carouselPageControl?.currentPage = Int(scrollView.contentOffset.x) / Int(scrollView.frame.width)
         
         if let indexPath = self.carouselView?.indexPathsForVisibleItems[0] {
-            print(indexPath)
             if indexPath.row == 0 && self.scrollDir == UISwipeGestureRecognizer.Direction.left {
                        //hide the collection view
-                print("asdlkfj")
                 self.carouselView.scrollToItem(at: [0,2], at: .centeredHorizontally, animated: true )
                 carouselPageControl?.currentPage = 0
             } else if indexPath.row == 2 && self.scrollDir == UISwipeGestureRecognizer.Direction.right {
-                print("HIHI!")
                 self.carouselView.scrollToItem(at: [0,0], at: .centeredHorizontally, animated: true )
                 carouselPageControl?.currentPage = 2
             }
@@ -221,7 +222,7 @@ class ViewController: UIViewController, UICollectionViewDelegate, UICollectionVi
         let screenRect = UIScreen.main.bounds
         let screenWidth = screenRect.size.width
         
-        // scrolling by 6 cells for trending
+        /// scrolling by 6 cells for trending
         if scrollView == self.trendingView {
             
             targetContentOffset.pointee = scrollView.contentOffset
@@ -230,12 +231,13 @@ class ViewController: UIViewController, UICollectionViewDelegate, UICollectionVi
             var index = indexes.first!
             let cell = self.trendingView.cellForItem(at: index)!
             let position = self.trendingView.contentOffset.x - cell.frame.origin.x
-            //to scroll to the 6th index (6 in a page)
             if index.row >= 6 {
                 index.row = 6
             } else if index.row <= 0 {
                 index.row = 0
             }
+            /// To scroll to the 6th index (6 in a page)
+
             if position > cell.frame.size.width/2 {
                 index.row = index.row + 6
                 trendingPageControl.currentPage = 1
@@ -331,7 +333,7 @@ class ViewController: UIViewController, UICollectionViewDelegate, UICollectionVi
 
         /// Nav Bar taps
         
-        //shows an alert when tapping the navigation bar
+        /// shows an alert when tapping the navigation bar
         let navBarTap = UITapGestureRecognizer(target: self, action: #selector(self.tapNavBar(_:)))
         let navBarTapHome = UITapGestureRecognizer(target: self, action: #selector(self.tapHomeNavBar(_:)))
         let navBarTapSale = UITapGestureRecognizer(target: self, action: #selector(self.tapSaleNavBar(_:)))
@@ -341,7 +343,7 @@ class ViewController: UIViewController, UICollectionViewDelegate, UICollectionVi
         let navBarTapBB = UITapGestureRecognizer(target: self, action: #selector(self.tapBBNavBar(_:)))
 
         
-        //shows we can tap individual labels
+        /// shows we can tap individual labels
         navBarView.homeLabel.isUserInteractionEnabled = true
         navBarView.homeLabel.addGestureRecognizer(navBarTapHome)
         
@@ -366,7 +368,6 @@ class ViewController: UIViewController, UICollectionViewDelegate, UICollectionVi
         }
         
         /// Product reel 1 taps
-        
         let goToTap = UITapGestureRecognizer(target: self, action: #selector(self.tapGoTo(_:)))
         productHorizontalReelView1.seeAllOutlet.addGestureRecognizer(goToTap)
         
@@ -412,6 +413,7 @@ class ViewController: UIViewController, UICollectionViewDelegate, UICollectionVi
 
     //MARK: - Functions
     func setupCarousel() {
+        /// Setup for carouse
         self.carouselView.register(UINib(nibName: "CarouselViewCell", bundle: nil), forCellWithReuseIdentifier: carouselCellIdentifier)
         self.carouselView.delegate = self
         self.carouselView.dataSource = self
@@ -420,12 +422,14 @@ class ViewController: UIViewController, UICollectionViewDelegate, UICollectionVi
     }
     
     func setupAlert(title: String, message: String) {
+        /// Setup for alerts
         let alert = UIAlertController(title: title, message: message, preferredStyle: UIAlertController.Style.alert)
         alert.addAction(UIAlertAction(title: "Done!", style: UIAlertAction.Style.default, handler: nil))
         self.present(alert, animated: true, completion: nil)
     }
     
     func setupProductHorizontalReel1(){
+        /// Setup for horizontal reel 1
         productHorizontalReelView1.seeAllOutlet.layer.cornerRadius = 5
         productHorizontalReelView1.seeAllOutlet.layer.borderWidth = 1
         productHorizontalReelView1.seeAllOutlet.layer.borderColor = UIColor.black.cgColor
@@ -495,6 +499,7 @@ class ViewController: UIViewController, UICollectionViewDelegate, UICollectionVi
     }
     
     func setupProductCollectionViewCell() {
+        /// Setup for product collection view cells in trending
         self.trendingView.register(UINib(nibName: "ProductCollectionViewCell", bundle: nil), forCellWithReuseIdentifier: productCollectionViewCellIdentifier)
         self.trendingView.delegate = self
         self.trendingView.dataSource = self
@@ -503,11 +508,13 @@ class ViewController: UIViewController, UICollectionViewDelegate, UICollectionVi
     }
     
     func setupFeaturedBrand(){
+        /// Setup for featured brand
         featuredBrandView.featuredImage.layer.cornerRadius = 5.0
         featuredBrandView.featuredImage.layer.masksToBounds = true
     }
     
     func setupProductHorizontalReel2(){
+        /// Setup for product reel 2
         productHorizontalReelView2.productReelLabel.text = "Skincare bestsellers"
         
         productHorizontalReelView2.seeAllOutlet.layer.cornerRadius = 5
@@ -581,6 +588,7 @@ class ViewController: UIViewController, UICollectionViewDelegate, UICollectionVi
     }
     
     func setupFeaturedView() {
+        /// Setup for Featured View
         featuredView.seeAllOutlet.layer.cornerRadius = 5
         featuredView.seeAllOutlet.layer.borderWidth = 1
         featuredView.seeAllOutlet.layer.borderColor = UIColor.black.cgColor
@@ -682,13 +690,10 @@ class ViewController: UIViewController, UICollectionViewDelegate, UICollectionVi
         featuredView.addConstraints([centerXConstraintBtn])
     }
     
-    func setupScrollTop() {
-        
-    }
-    
     // MARK: - Functions
     
     @objc func autoScroll() {
+        /// Auto scroll functionality
         if timerCtr < carouselImages.count {
             let index = IndexPath.init(item: timerCtr, section: 0)
             self.carouselView.scrollToItem(at: index, at: .centeredHorizontally, animated: true)
@@ -704,8 +709,8 @@ class ViewController: UIViewController, UICollectionViewDelegate, UICollectionVi
     // MARK: - ViewDidLoad
     
     override func viewDidLoad() {
+        /// Setups in viewDidLoad
         super.viewDidLoad()
-        // Do any additional setup after loading the view.
         setupTaps()
         setupCarousel()
         setupProductHorizontalReel1()
@@ -713,7 +718,6 @@ class ViewController: UIViewController, UICollectionViewDelegate, UICollectionVi
         setupFeaturedBrand()
         setupProductHorizontalReel2()
         setupFeaturedView()
-        setupScrollTop()
     }
     
 }
