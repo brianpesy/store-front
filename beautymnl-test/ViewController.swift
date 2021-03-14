@@ -70,6 +70,7 @@ class ViewController: UIViewController, UICollectionViewDelegate, UICollectionVi
     // MARK: - Setting up Outlets
     @IBOutlet var contentView: UIView!
     @IBOutlet weak var navBarView: NavigationBarView!
+    @IBOutlet weak var scrollView: UIScrollView!
     @IBOutlet weak var carouselView: UICollectionView!
     @IBOutlet weak var carouselPageControl: UIPageControl!
     @IBOutlet weak var productHorizontalReelView1: ProductHorizontalReelView!
@@ -78,6 +79,7 @@ class ViewController: UIViewController, UICollectionViewDelegate, UICollectionVi
     @IBOutlet weak var featuredBrandView: FeaturedBrandView!
     @IBOutlet weak var productHorizontalReelView2: ProductHorizontalReelView!
     @IBOutlet weak var featuredView: FeaturedView!
+    @IBOutlet weak var tmbTopLabel: UILabel!
     
     
     // MARK: - Setting up Collection Views
@@ -176,11 +178,9 @@ class ViewController: UIViewController, UICollectionViewDelegate, UICollectionVi
         if scrollView == self.carouselView {
             if self.lastContentOffset > scrollView.contentOffset.x {
                 self.scrollDir = UISwipeGestureRecognizer.Direction.left
-//                print("left")
             }
             else if self.lastContentOffset < scrollView.contentOffset.x {
                 self.scrollDir = UISwipeGestureRecognizer.Direction.right
-//                print("right")
             }
             self.lastContentOffset = scrollView.contentOffset.x
         }
@@ -288,7 +288,6 @@ class ViewController: UIViewController, UICollectionViewDelegate, UICollectionVi
      }
     
     @objc func hideKeyboard() {
-        //Causes the view (or one of its embedded text fields) to resign the first responder status.
         view.endEditing(true)
     }
     
@@ -316,11 +315,16 @@ class ViewController: UIViewController, UICollectionViewDelegate, UICollectionVi
         setupAlert(title: "Button pressed", message: "Featured Brand")
     }
     
+    @objc func tapScrollTop(_ sender: UITapGestureRecognizer) {
+        let topOffset = CGPoint(x: 0, y: 0)
+        scrollView.setContentOffset(topOffset, animated: true)
+    }
+    
+    
     //MARK: - Tap Setup
     func setupTaps(){
         
         /// Keyboard dismiss
-        //dismisses the keyboard when tapping anywhere
         let hideKeyboardTap = UITapGestureRecognizer(target: self, action: #selector(hideKeyboard))
         view.addGestureRecognizer(hideKeyboardTap)
         hideKeyboardTap.cancelsTouchesInView = false
@@ -360,7 +364,6 @@ class ViewController: UIViewController, UICollectionViewDelegate, UICollectionVi
         DispatchQueue.main.async {
             self.timer = Timer.scheduledTimer(timeInterval: 10.0, target: self, selector: #selector(self.autoScroll), userInfo: nil, repeats: true)
         }
-//        timer = Timer.scheduledTimer(timeInterval: 1.0, target: self, selector: #selector(autoScroll), userInfo: nil, repeats: true)
         
         /// Product reel 1 taps
         
@@ -399,6 +402,12 @@ class ViewController: UIViewController, UICollectionViewDelegate, UICollectionVi
         productHorizontalReelView2.productView.addGestureRecognizer(productReelTap21)
         productHorizontalReelView2.productView2.addGestureRecognizer(productReelTap22)
         productHorizontalReelView2.productView3.addGestureRecognizer(productReelTap23)
+        
+        /// Scroll top
+        let scrollTopTap = UITapGestureRecognizer(target: self, action: #selector(self.tapScrollTop(_:)))
+        tmbTopLabel.isUserInteractionEnabled = true
+        tmbTopLabel.addGestureRecognizer(scrollTopTap)
+        
     }
 
     //MARK: - Functions
@@ -673,6 +682,10 @@ class ViewController: UIViewController, UICollectionViewDelegate, UICollectionVi
         featuredView.addConstraints([centerXConstraintBtn])
     }
     
+    func setupScrollTop() {
+        
+    }
+    
     // MARK: - Functions
     
     @objc func autoScroll() {
@@ -700,6 +713,7 @@ class ViewController: UIViewController, UICollectionViewDelegate, UICollectionVi
         setupFeaturedBrand()
         setupProductHorizontalReel2()
         setupFeaturedView()
+        setupScrollTop()
     }
     
 }

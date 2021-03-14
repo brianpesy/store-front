@@ -128,15 +128,33 @@
                                             <constraint firstAttribute="height" constant="735" id="Mhl-0d-mp1"/>
                                         </constraints>
                                     </view>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="All good things come to an end" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="oWq-or-BIv">
+                                        <rect key="frame" x="101" y="2686" width="212.5" height="15"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="15" id="XYz-M7-VvF"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                        <color key="textColor" systemColor="systemGray2Color"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="TAKE ME BACK TO THE TOP" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zM2-YQ-Bph">
+                                        <rect key="frame" x="98" y="2712" width="218" height="21"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <color key="textColor" systemColor="systemRedColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
                                 </subviews>
                                 <constraints>
                                     <constraint firstItem="BuA-a7-8QF" firstAttribute="top" secondItem="Eco-Cm-bC4" secondAttribute="top" constant="8" id="0TY-oq-BYO"/>
                                     <constraint firstItem="lkK-qZ-Bgl" firstAttribute="leading" secondItem="Eco-Cm-bC4" secondAttribute="leading" id="1Nb-5N-AeB"/>
+                                    <constraint firstItem="oWq-or-BIv" firstAttribute="centerX" secondItem="Eco-Cm-bC4" secondAttribute="centerX" id="2eo-wr-aPp"/>
                                     <constraint firstItem="EKN-KK-KeK" firstAttribute="top" secondItem="BuA-a7-8QF" secondAttribute="bottom" constant="8" symbolic="YES" id="3UK-wO-Rw4"/>
+                                    <constraint firstItem="zM2-YQ-Bph" firstAttribute="top" secondItem="oWq-or-BIv" secondAttribute="bottom" constant="11" id="5b5-nz-qlq"/>
                                     <constraint firstAttribute="trailing" secondItem="Iwl-6y-8fn" secondAttribute="trailing" id="5kg-zw-cze"/>
                                     <constraint firstItem="Iwl-6y-8fn" firstAttribute="leading" secondItem="Eco-Cm-bC4" secondAttribute="leading" id="67l-Jf-bNK"/>
                                     <constraint firstItem="8hz-WQ-Mvp" firstAttribute="top" secondItem="Iwl-6y-8fn" secondAttribute="bottom" constant="34" id="857-sn-dXn"/>
                                     <constraint firstAttribute="bottom" secondItem="lkK-qZ-Bgl" secondAttribute="bottom" constant="101" id="9ZD-QM-zNE"/>
+                                    <constraint firstItem="oWq-or-BIv" firstAttribute="top" secondItem="lkK-qZ-Bgl" secondAttribute="bottom" constant="8" symbolic="YES" id="9hU-nZ-uGX"/>
                                     <constraint firstAttribute="trailing" secondItem="cHZ-UF-OA1" secondAttribute="trailing" id="CIq-us-J5D"/>
                                     <constraint firstItem="8hz-WQ-Mvp" firstAttribute="centerX" secondItem="Eco-Cm-bC4" secondAttribute="centerX" id="D0m-qL-aiB"/>
                                     <constraint firstItem="BuA-a7-8QF" firstAttribute="leading" secondItem="Eco-Cm-bC4" secondAttribute="leading" id="EpL-f8-akB"/>
@@ -148,8 +166,10 @@
                                     <constraint firstItem="RDt-tj-zbF" firstAttribute="top" secondItem="cHZ-UF-OA1" secondAttribute="bottom" constant="8" symbolic="YES" id="SKy-a4-nZE"/>
                                     <constraint firstItem="vx0-G1-gc5" firstAttribute="top" secondItem="RDt-tj-zbF" secondAttribute="bottom" constant="17" id="TQM-rB-LjF"/>
                                     <constraint firstAttribute="trailing" secondItem="BuA-a7-8QF" secondAttribute="trailing" id="Tzn-qk-fb7"/>
+                                    <constraint firstItem="zM2-YQ-Bph" firstAttribute="centerX" secondItem="Eco-Cm-bC4" secondAttribute="centerX" id="Vxz-H1-N5h"/>
                                     <constraint firstItem="lkK-qZ-Bgl" firstAttribute="top" secondItem="6Jv-ov-0BD" secondAttribute="bottom" constant="36.5" id="ZBC-qr-H4G"/>
                                     <constraint firstItem="cHZ-UF-OA1" firstAttribute="top" secondItem="8hz-WQ-Mvp" secondAttribute="bottom" constant="13.5" id="ZGt-YA-l7P"/>
+                                    <constraint firstAttribute="bottom" secondItem="zM2-YQ-Bph" secondAttribute="bottom" constant="46" id="aVl-FY-Ahl"/>
                                     <constraint firstItem="EKN-KK-KeK" firstAttribute="centerX" secondItem="Eco-Cm-bC4" secondAttribute="centerX" id="f1u-M0-48c"/>
                                     <constraint firstItem="RDt-tj-zbF" firstAttribute="centerX" secondItem="Eco-Cm-bC4" secondAttribute="centerX" id="h7k-u3-98r"/>
                                     <constraint firstItem="cHZ-UF-OA1" firstAttribute="leading" secondItem="Eco-Cm-bC4" secondAttribute="leading" id="hFt-jw-z5k"/>
@@ -238,6 +258,8 @@
                         <outlet property="navBarView" destination="A1u-Aj-IB2" id="HnW-Kx-dl2"/>
                         <outlet property="productHorizontalReelView1" destination="Iwl-6y-8fn" id="ZkG-qb-KU8"/>
                         <outlet property="productHorizontalReelView2" destination="6Jv-ov-0BD" id="m7I-gW-q9f"/>
+                        <outlet property="scrollView" destination="Eco-Cm-bC4" id="jRi-sF-x4M"/>
+                        <outlet property="tmbTopLabel" destination="zM2-YQ-Bph" id="yb6-jZ-aXZ"/>
                         <outlet property="trendingPageControl" destination="RDt-tj-zbF" id="bvY-19-OKh"/>
                         <outlet property="trendingView" destination="cHZ-UF-OA1" id="QAk-23-QSh"/>
                     </connections>
@@ -256,11 +278,17 @@
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>
+        <systemColor name="systemGray2Color">
+            <color red="0.68235294117647061" green="0.68235294117647061" blue="0.69803921568627447" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
         <systemColor name="systemGray3Color">
             <color red="0.7803921568627451" green="0.7803921568627451" blue="0.80000000000000004" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
         <systemColor name="systemIndigoColor">
             <color red="0.34509803921568627" green="0.33725490196078434" blue="0.83921568627450982" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+        <systemColor name="systemRedColor">
+            <color red="1" green="0.23137254901960785" blue="0.18823529411764706" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
     </resources>
 </document>
