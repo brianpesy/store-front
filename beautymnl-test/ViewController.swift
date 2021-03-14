@@ -47,6 +47,19 @@ class ViewController: UIViewController, UICollectionViewDelegate, UICollectionVi
         UIImage(named: "product-t-11"),
         UIImage(named: "product-t-12")
     ]
+    
+    let productReel2Images = [
+        UIImage(named: "product-6"),
+        UIImage(named: "product-7"),
+        UIImage(named: "product-8")
+    ]
+    
+    let featuredImages = [
+        UIImage(named: "product-9"),
+        UIImage(named: "product-10"),
+        UIImage(named: "product-11"),
+        UIImage(named: "product-12")
+    ]
         
     // MARK: - Setting up Outlets
     @IBOutlet var contentView: UIView!
@@ -368,7 +381,7 @@ class ViewController: UIViewController, UICollectionViewDelegate, UICollectionVi
         productHorizontalReelView1.seeAllOutlet.layer.borderColor = UIColor.black.cgColor
                 
         productHorizontalReelView1.productView.productImage.image = productReelImages[0]
-        productHorizontalReelView1.productView.brandLabel.text = "Healthy Cars"
+        productHorizontalReelView1.productView.brandLabel.text = "HEALTHY CARS"
         productHorizontalReelView1.productView.nameLabel.text = "Electronic Car"
         productHorizontalReelView1.productView.priceLabel.text = "₱100000"
         productHorizontalReelView1.productView.star1.image = ratingImages[0]
@@ -379,7 +392,7 @@ class ViewController: UIViewController, UICollectionViewDelegate, UICollectionVi
         productHorizontalReelView1.productView.ratingNumberLabel.text = "7"
         
         productHorizontalReelView1.productView2.productImage.image = productReelImages[1]
-        productHorizontalReelView1.productView2.brandLabel.text = "Loot-ion"
+        productHorizontalReelView1.productView2.brandLabel.text = "LOOT-ION"
         productHorizontalReelView1.productView2.nameLabel.text = "Hand Lotion"
         productHorizontalReelView1.productView2.priceLabel.text = "₱600"
         productHorizontalReelView1.productView2.star1.image = ratingImages[0]
@@ -390,7 +403,7 @@ class ViewController: UIViewController, UICollectionViewDelegate, UICollectionVi
         productHorizontalReelView1.productView2.ratingNumberLabel.text = "2311"
         
         productHorizontalReelView1.productView3.productImage.image = productReelImages[2]
-        productHorizontalReelView1.productView3.brandLabel.text = "Nice Cups"
+        productHorizontalReelView1.productView3.brandLabel.text = "NICE CUPS"
         productHorizontalReelView1.productView3.nameLabel.text = "Red Cup"
         productHorizontalReelView1.productView3.priceLabel.text = "₱100"
         productHorizontalReelView1.productView3.star1.image = ratingImages[0]
@@ -445,42 +458,44 @@ class ViewController: UIViewController, UICollectionViewDelegate, UICollectionVi
     }
     
     func setupProductHorizontalReel2(){
+        productHorizontalReelView2.productReelLabel.text = "Skincare bestsellers"
+        
         productHorizontalReelView2.seeAllOutlet.layer.cornerRadius = 5
         productHorizontalReelView2.seeAllOutlet.layer.borderWidth = 1
         productHorizontalReelView2.seeAllOutlet.layer.borderColor = UIColor.black.cgColor
         
-        productHorizontalReelView2.productView.productImage.image = productReelImages[0]
-        productHorizontalReelView2.productView.brandLabel.text = "Healthy Cars"
-        productHorizontalReelView2.productView.nameLabel.text = "Electronic Car"
-        productHorizontalReelView2.productView.priceLabel.text = "₱100000"
+        productHorizontalReelView2.productView.productImage.image = productReel2Images[0]
+        productHorizontalReelView2.productView.brandLabel.text = "DRINKS N MORE"
+        productHorizontalReelView2.productView.nameLabel.text = "Crazy Whisky"
+        productHorizontalReelView2.productView.priceLabel.text = "₱700000"
         productHorizontalReelView2.productView.star1.image = ratingImages[0]
         productHorizontalReelView2.productView.star2.image = ratingImages[0]
-        productHorizontalReelView2.productView.star3.image = ratingImages[0]
-        productHorizontalReelView2.productView.star4.image = ratingImages[0]
+        productHorizontalReelView2.productView.star3.image = ratingImages[1]
+        productHorizontalReelView2.productView.star4.image = ratingImages[1]
         productHorizontalReelView2.productView.star5.image = ratingImages[1]
-        productHorizontalReelView2.productView.ratingNumberLabel.text = "7"
+        productHorizontalReelView2.productView.ratingNumberLabel.text = "3"
         
-        productHorizontalReelView2.productView2.productImage.image = productReelImages[1]
-        productHorizontalReelView2.productView2.brandLabel.text = "Loot-ion"
-        productHorizontalReelView2.productView2.nameLabel.text = "Hand Lotion"
-        productHorizontalReelView2.productView2.priceLabel.text = "₱600"
+        productHorizontalReelView2.productView2.productImage.image = productReel2Images[1]
+        productHorizontalReelView2.productView2.brandLabel.text = "SPRAYZ"
+        productHorizontalReelView2.productView2.nameLabel.text = "Water Spray"
+        productHorizontalReelView2.productView2.priceLabel.text = "₱100"
         productHorizontalReelView2.productView2.star1.image = ratingImages[0]
         productHorizontalReelView2.productView2.star2.image = ratingImages[0]
         productHorizontalReelView2.productView2.star3.image = ratingImages[0]
         productHorizontalReelView2.productView2.star4.image = ratingImages[0]
-        productHorizontalReelView2.productView2.star5.image = ratingImages[0]
-        productHorizontalReelView2.productView2.ratingNumberLabel.text = "2311"
+        productHorizontalReelView2.productView2.star5.image = ratingImages[1]
+        productHorizontalReelView2.productView2.ratingNumberLabel.text = "357"
         
-        productHorizontalReelView2.productView3.productImage.image = productReelImages[2]
-        productHorizontalReelView2.productView3.brandLabel.text = "Nice Cups"
-        productHorizontalReelView2.productView3.nameLabel.text = "Red Cup"
-        productHorizontalReelView2.productView3.priceLabel.text = "₱100"
+        productHorizontalReelView2.productView3.productImage.image = productReel2Images[2]
+        productHorizontalReelView2.productView3.brandLabel.text = "Bottles"
+        productHorizontalReelView2.productView3.nameLabel.text = "Perfume"
+        productHorizontalReelView2.productView3.priceLabel.text = "₱1350"
         productHorizontalReelView2.productView3.star1.image = ratingImages[0]
         productHorizontalReelView2.productView3.star2.image = ratingImages[0]
-        productHorizontalReelView2.productView3.star3.image = ratingImages[1]
+        productHorizontalReelView2.productView3.star3.image = ratingImages[0]
         productHorizontalReelView2.productView3.star4.image = ratingImages[1]
         productHorizontalReelView2.productView3.star5.image = ratingImages[1]
-        productHorizontalReelView2.productView3.ratingNumberLabel.text = "498"
+        productHorizontalReelView2.productView3.ratingNumberLabel.text = "562"
         
         let screenRect = UIScreen.main.bounds
         let screenWidth = screenRect.size.width
@@ -518,38 +533,49 @@ class ViewController: UIViewController, UICollectionViewDelegate, UICollectionVi
         featuredView.seeAllOutlet.layer.borderWidth = 1
         featuredView.seeAllOutlet.layer.borderColor = UIColor.black.cgColor
                 
-        featuredView.productView.productImage.image = productReelImages[0]
-        featuredView.productView.brandLabel.text = "Healthy Cars"
-        featuredView.productView.nameLabel.text = "Electronic Car"
-        featuredView.productView.priceLabel.text = "₱100000"
+        featuredView.productView.productImage.image = featuredImages[0]
+        featuredView.productView.brandLabel.text = "LOOT-ION"
+        featuredView.productView.nameLabel.text = "Not-Kombucha"
+        featuredView.productView.priceLabel.text = "₱130"
         featuredView.productView.star1.image = ratingImages[0]
         featuredView.productView.star2.image = ratingImages[0]
         featuredView.productView.star3.image = ratingImages[0]
         featuredView.productView.star4.image = ratingImages[0]
         featuredView.productView.star5.image = ratingImages[1]
-        featuredView.productView.ratingNumberLabel.text = "7"
+        featuredView.productView.ratingNumberLabel.text = "74"
         
-//        productHorizontalReelView1.productView2.productImage.image = productReelImages[1]
-//        productHorizontalReelView1.productView2.brandLabel.text = "Loot-ion"
-//        productHorizontalReelView1.productView2.nameLabel.text = "Hand Lotion"
-//        productHorizontalReelView1.productView2.priceLabel.text = "₱600"
-//        productHorizontalReelView1.productView2.star1.image = ratingImages[0]
-//        productHorizontalReelView1.productView2.star2.image = ratingImages[0]
-//        productHorizontalReelView1.productView2.star3.image = ratingImages[0]
-//        productHorizontalReelView1.productView2.star4.image = ratingImages[0]
-//        productHorizontalReelView1.productView2.star5.image = ratingImages[0]
-//        productHorizontalReelView1.productView2.ratingNumberLabel.text = "2311"
-//
-//        productHorizontalReelView1.productView3.productImage.image = productReelImages[2]
-//        productHorizontalReelView1.productView3.brandLabel.text = "Nice Cups"
-//        productHorizontalReelView1.productView3.nameLabel.text = "Red Cup"
-//        productHorizontalReelView1.productView3.priceLabel.text = "₱100"
-//        productHorizontalReelView1.productView3.star1.image = ratingImages[0]
-//        productHorizontalReelView1.productView3.star2.image = ratingImages[0]
-//        productHorizontalReelView1.productView3.star3.image = ratingImages[1]
-//        productHorizontalReelView1.productView3.star4.image = ratingImages[1]
-//        productHorizontalReelView1.productView3.star5.image = ratingImages[1]
-//        productHorizontalReelView1.productView3.ratingNumberLabel.text = "498"
+        featuredView.productView2.productImage.image = featuredImages[1]
+        featuredView.productView2.brandLabel.text = "LOOT-ION"
+        featuredView.productView2.nameLabel.text = "Floating Spray"
+        featuredView.productView2.priceLabel.text = "₱400"
+        featuredView.productView2.star1.image = ratingImages[0]
+        featuredView.productView2.star2.image = ratingImages[0]
+        featuredView.productView2.star3.image = ratingImages[0]
+        featuredView.productView2.star4.image = ratingImages[0]
+        featuredView.productView2.star5.image = ratingImages[1]
+        featuredView.productView2.ratingNumberLabel.text = "329"
+
+        featuredView.productView3.productImage.image = featuredImages[2]
+        featuredView.productView3.brandLabel.text = "LOOT-ION"
+        featuredView.productView3.nameLabel.text = "Grapes (1kg)"
+        featuredView.productView3.priceLabel.text = "₱100"
+        featuredView.productView3.star1.image = ratingImages[0]
+        featuredView.productView3.star2.image = ratingImages[0]
+        featuredView.productView3.star3.image = ratingImages[0]
+        featuredView.productView3.star4.image = ratingImages[1]
+        featuredView.productView3.star5.image = ratingImages[1]
+        featuredView.productView3.ratingNumberLabel.text = "93"
+        
+        featuredView.productView4.productImage.image = featuredImages[3]
+        featuredView.productView4.brandLabel.text = "LOOT-ION"
+        featuredView.productView4.nameLabel.text = "Lens Container"
+        featuredView.productView4.priceLabel.text = "₱450"
+        featuredView.productView4.star1.image = ratingImages[0]
+        featuredView.productView4.star2.image = ratingImages[0]
+        featuredView.productView4.star3.image = ratingImages[0]
+        featuredView.productView4.star4.image = ratingImages[0]
+        featuredView.productView4.star5.image = ratingImages[1]
+        featuredView.productView4.ratingNumberLabel.text = "52"
         
         let screenRect = UIScreen.main.bounds
         let screenWidth = screenRect.size.width
