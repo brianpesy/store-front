@@ -582,7 +582,7 @@ class ViewController: UIViewController, UICollectionViewDelegate, UICollectionVi
         productHorizontalReelView2.productView2.ratingNumberLabel.text = "357"
         
         productHorizontalReelView2.productView3.productImage.image = productReel2Images[2]
-        productHorizontalReelView2.productView3.brandLabel.text = "Bottles"
+        productHorizontalReelView2.productView3.brandLabel.text = "BOTTLES"
         productHorizontalReelView2.productView3.nameLabel.text = "Perfume"
         productHorizontalReelView2.productView3.priceLabel.text = "₱1350"
         productHorizontalReelView2.productView3.star1.image = ratingImages[0]
