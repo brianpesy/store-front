@@ -111,7 +111,7 @@ class ViewController: UIViewController, UICollectionViewDelegate, UICollectionVi
                                                     toItem: nil,
                                                     attribute: .notAnAttribute,
                                                     multiplier: 1,
-                                                    constant: (screenWidth/3) - 40)
+                                                    constant: (screenWidth/3) - 45)
             var heightConstraint = NSLayoutConstraint(item: cell.contentView,
                                                       attribute: .height,
                                                       relatedBy: .equal,
@@ -128,7 +128,6 @@ class ViewController: UIViewController, UICollectionViewDelegate, UICollectionVi
                                         constant: 0)
 
             cell.addConstraints([widthConstraint, heightConstraint, centerXConstraint])
-
             
             widthConstraint = NSLayoutConstraint(item: cell.productImage,
                                                     attribute: .width,
@@ -136,7 +135,7 @@ class ViewController: UIViewController, UICollectionViewDelegate, UICollectionVi
                                                     toItem: nil,
                                                     attribute: .notAnAttribute,
                                                     multiplier: 1,
-                                                    constant: (screenWidth/3) - 73)
+                                                    constant: (screenWidth/3) - 45)
             centerXConstraint = NSLayoutConstraint(item: cell.productImage,
                                         attribute: .centerX,
                                         relatedBy: .equal,
@@ -153,7 +152,7 @@ class ViewController: UIViewController, UICollectionViewDelegate, UICollectionVi
                                                     toItem: nil,
                                                     attribute: .notAnAttribute,
                                                     multiplier: 1,
-                                                    constant: (screenWidth/3) - 65)
+                                                    constant: (screenWidth/3) - 45)
             centerXConstraint = NSLayoutConstraint(item: cell.productLabel,
                                         attribute: .centerX,
                                         relatedBy: .equal,
@@ -212,7 +211,6 @@ class ViewController: UIViewController, UICollectionViewDelegate, UICollectionVi
         
         if let indexPath = self.carouselView?.indexPathsForVisibleItems[0] {
             if indexPath.row == 0 && self.scrollDir == UISwipeGestureRecognizer.Direction.left {
-                       //hide the collection view
                 self.carouselView.scrollToItem(at: [0,2], at: .centeredHorizontally, animated: true )
                 carouselPageControl?.currentPage = 0
             } else if indexPath.row == 2 && self.scrollDir == UISwipeGestureRecognizer.Direction.right {
@@ -697,6 +695,18 @@ class ViewController: UIViewController, UICollectionViewDelegate, UICollectionVi
         featuredView.addConstraints([centerXConstraintBtn])
     }
     
+    func setupCollectionViewFlowLayout(){
+        let screenRect = UIScreen.main.bounds
+        let screenWidth = screenRect.size.width
+        
+        let layout = UICollectionViewFlowLayout()
+        layout.itemSize = CGSize(width: screenWidth/3, height: 165)
+        layout.scrollDirection = .horizontal
+        layout.minimumLineSpacing = 0
+        layout.minimumInteritemSpacing = 0
+        trendingView.setCollectionViewLayout(layout, animated: false)
+    }
+    
     // MARK: - Functions
     
     @objc func autoScroll() {
@@ -718,6 +728,8 @@ class ViewController: UIViewController, UICollectionViewDelegate, UICollectionVi
     override func viewDidLoad() {
         /// Setups in viewDidLoad
         super.viewDidLoad()
+        
+        setupCollectionViewFlowLayout()
         setupTaps()
         setupCarousel()
         setupProductHorizontalReel1()
@@ -725,17 +737,6 @@ class ViewController: UIViewController, UICollectionViewDelegate, UICollectionVi
         setupFeaturedBrand()
         setupProductHorizontalReel2()
         setupFeaturedView()
-    }
-    
-    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        
-        let screenRect = UIScreen.main.bounds
-        let screenWidth = screenRect.size.width
-        
-        if collectionView == self.trendingView {
-            return CGSize(width: screenWidth/3, height: 165)
-        }
-        return CGSize(width: screenWidth, height: 231)
     }
     
 }
