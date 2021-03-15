@@ -10,8 +10,6 @@ import UIKit
 let carouselCellIdentifier = "CarouselViewCell"
 let productCollectionViewCellIdentifier = "ProductCollectionViewCell"
 
-private var indexOfCellBeforeDragging = 0
-
 class ViewController: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource {
     
     // MARK: - Variable Delcaration
@@ -80,8 +78,6 @@ class ViewController: UIViewController, UICollectionViewDelegate, UICollectionVi
     @IBOutlet weak var productHorizontalReelView2: ProductHorizontalReelView!
     @IBOutlet weak var featuredView: FeaturedView!
     @IBOutlet weak var tmbTopLabel: UILabel!
-//    @IBOutlet weak var trendingContentView: UICollectionViewCell!
-    
     
     // MARK: - Setting up Collection Views
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
@@ -105,36 +101,9 @@ class ViewController: UIViewController, UICollectionViewDelegate, UICollectionVi
             let cell = trendingView.dequeueReusableCell(withReuseIdentifier: productCollectionViewCellIdentifier, for: indexPath) as! ProductCollectionViewCell
             cell.productImage.image = trendingImages[indexPath.row % trendingImages.count]
             cell.productLabel.text = "Item \(String(indexPath.row % trendingImages.count))"
-            
-            //removing these 2 can center the contentView inside the cell
-            
+                        
             let screenRect = UIScreen.main.bounds
             let screenWidth = screenRect.size.width
-            
-//
-//            var widthConstraint = NSLayoutConstraint(item: cell,
-//                                                    attribute: .width,
-//                                                    relatedBy: .equal,
-//                                                    toItem: nil,
-//                                                    attribute: .notAnAttribute,
-//                                                    multiplier: 1,
-//                                                    constant: (screenWidth/3) - 40) //35
-//            var heightConstraint = NSLayoutConstraint(item: cell,
-//                                                      attribute: .height,
-//                                                      relatedBy: .equal,
-//                                                      toItem: nil,
-//                                                      attribute: .notAnAttribute,
-//                                                      multiplier: 1,
-//                                                      constant: 165)
-//            var centerXConstraint = NSLayoutConstraint(item: cell,
-//                                        attribute: .centerX,
-//                                        relatedBy: .equal,
-//                                        toItem: cell,
-//                                        attribute: .centerX,
-//                                        multiplier: 1,
-//                                        constant: 0)
-//
-//            cell.addConstraints([widthConstraint, heightConstraint, centerXConstraint])
             
             var widthConstraint = NSLayoutConstraint(item: cell.contentView,
                                                     attribute: .width,
@@ -763,8 +732,8 @@ class ViewController: UIViewController, UICollectionViewDelegate, UICollectionVi
         let screenRect = UIScreen.main.bounds
         let screenWidth = screenRect.size.width
         
-        if collectionView == self.trendingView { //width of 10 seems to fix it but has clipping issues on larger devices
-            return CGSize(width: 0, height: 165)
+        if collectionView == self.trendingView {
+            return CGSize(width: screenWidth/3, height: 165)
         }
         return CGSize(width: screenWidth, height: 231)
     }
